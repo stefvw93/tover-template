@@ -1,3 +1,4 @@
 node_modules/
 .vscode/
-compiled/
+__compiled/
+_dist/
