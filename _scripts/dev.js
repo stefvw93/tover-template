@@ -13,7 +13,7 @@ const webpackCommand = [
 execSync(`rm -rf ${paths.compiled}`);
 
 // compile & watch ts
-execSync("tsc -w", { stdio: "inherit" });
+exec("tsc -w");
 
 // webpack dev server
-execSync(webpackCommand);
+execSync(webpackCommand, { stdio: "inherit" });

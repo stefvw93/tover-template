@@ -21,12 +21,7 @@ module.exports = function(env, argv) {
   const developmentConfig = {
     ...commonConfig,
     mode: "development",
-
-    output: {
-      path: paths.devServerContentBase
-    },
     devServer: {
-      contentBase: paths.devServerContentBase,
       hot: devServer.hot,
       port: devServer.port,
       host: devServer.ip,
@@ -35,7 +30,6 @@ module.exports = function(env, argv) {
   };
 
   if (environment === keys.PRODUCTION) {
-    console.log(JSON.stringify(productionConfig));
     return productionConfig;
   }
 
