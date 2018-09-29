@@ -7,8 +7,8 @@ module.exports = {
   },
 
   keys: {
-    PRODUCTION: "production",
-    DEVELOPMENT: "development"
+    DEVELOPMENT: "development",
+    PRODUCTION: "production"
   },
 
   filenames: {
@@ -16,16 +16,15 @@ module.exports = {
   },
 
   paths: {
-    devServerContentBase: path.join(__dirname, "dev-server-public"),
-    context: path.join(__dirname, "_compiled"),
+    compiled: path.join(__dirname, "__compiled"),
     distribution: path.join(__dirname, "_dist"),
-    compiled: path.join(__dirname, "_compiled")
+    webpack: path.join(__dirname, "_webpack")
   },
 
   devServer: {
     hot: true,
     ip: localIp,
-    port: 12020,
-    open: true
+    open: true,
+    port: 12020
   }
 };

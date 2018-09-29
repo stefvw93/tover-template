@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
     "jsx": "react",
     "jsxFactory": "h",
     "moduleResolution": "node",
     "module": "es6",
     "target": "es6",
-    "outDir": "_compiled",
+    "outDir": "__compiled",
     "types": ["node"]
   },
-
   "exclude": ["node_modules"],
   "include": ["./src"]
 }

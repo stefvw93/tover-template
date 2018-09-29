@@ -7,7 +7,7 @@ module.exports = function(env, argv) {
   const environment = process.env.NODE_ENV;
 
   const commonConfig = {
-    context: paths.context,
+    context: paths.compiled,
     entry: filenames.entry,
     plugins: plugins(environment)
   };
