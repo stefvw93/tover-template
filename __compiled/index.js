@@ -1,4 +1,4 @@
 import { h, render } from "preact";
 // components
-import Example from "./components/Example";
+import Example from "./common/Example.component";
 render(h(Example, null), document.getElementById("root"));
