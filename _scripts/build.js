@@ -1,22 +1,14 @@
 const { execSync } = require("child_process");
 const projectConfig = require("../project.config");
-const { keys, paths } = projectConfig;
+const { paths } = projectConfig;
 
-const webpackCommand = [
-  "NODE_ENV=" + keys.PRODUCTION,
+const buildCommand = [
+  `rm -rf ${paths.compiled} ${paths.distribution} &&`,
+  "tsc &&",
   "webpack",
-  "--display-error-details",
-  `--config ${paths.webpack}/webpack.config`
+  `--config ${paths.webpack}/webpack.production`,
+  "--display-error-details"
 ].join(" ");
 
-// clear compiled folder
-execSync(`rm -rf ${paths.compiled}`);
-
-// clear dist folder
-execSync(`rm -rf ${paths.distribution}`);
-
-// compile ts
-execSync("tsc");
-
 // transpile js
-execSync(webpackCommand, { stdio: "inherit" });
+execSync(buildCommand, { stdio: "inherit" });

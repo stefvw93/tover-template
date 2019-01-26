@@ -6,11 +6,6 @@ module.exports = {
     title: "React TS Boilerplate"
   },
 
-  keys: {
-    DEVELOPMENT: "development",
-    PRODUCTION: "production"
-  },
-
   filenames: {
     entry: "./index.js"
   },
@@ -18,7 +13,11 @@ module.exports = {
   paths: {
     compiled: path.join(__dirname, "__compiled"),
     distribution: path.join(__dirname, "_dist"),
-    webpack: path.join(__dirname, "_webpack")
+    webpack: path.join(__dirname, "_webpack"),
+    templates: {
+      development: path.join("src", "template.development.pug"),
+      production: path.join("src", "template.production.pug")
+    }
   },
 
   devServer: {

@@ -6,8 +6,7 @@
     "moduleResolution": "node",
     "module": "es6",
     "target": "es6",
-    "outDir": "__compiled",
-    "types": ["node"]
+    "outDir": "__compiled"
   },
   "exclude": ["node_modules"],
   "include": ["./src"]
