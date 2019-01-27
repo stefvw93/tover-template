@@ -8,7 +8,8 @@ module.exports = {
     hot: devServer.hot,
     port: devServer.port,
     host: devServer.ip,
-    open: devServer.open
+    open: devServer.open,
+    historyApiFallback: true
   },
   context: paths.compiled,
   entry: filenames.entry,
@@ -18,5 +19,8 @@ module.exports = {
       title: app.title,
       template: `!!pug-loader!${paths.templates.development}`
     })
-  ]
+  ],
+  resolve: {
+    alias: paths.aliases
+  }
 };

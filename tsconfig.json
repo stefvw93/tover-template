@@ -1,12 +1,22 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "baseUrl": "src",
+    "experimentalDecorators": true,
     "jsx": "react",
-    "jsxFactory": "h",
-    "moduleResolution": "node",
     "module": "es6",
+    "moduleResolution": "node",
+    "outDir": "__compiled",
     "target": "es6",
-    "outDir": "__compiled"
+    "paths": {
+      "@common/*": ["common/*"],
+      "@components/*": ["components/*"],
+      "@enums/*": ["enums/*"],
+      "@services/*": ["services/*"],
+      "@store/*": ["store/*"],
+      "@typings/*": ["typings/*"],
+      "@views/*": ["views/*"]
+    }
   },
   "exclude": ["node_modules"],
   "include": ["./src"]
