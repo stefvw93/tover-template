@@ -17,10 +17,15 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.templates.development}`
+      template: `!!pug-loader!${paths.templates.development}`,
+      inject: false
+    }),
+    new webpack.DefinePlugin({
+      "process.env.API_URL": JSON.stringify(process.env.API_URL)
     })
   ],
   resolve: {
-    alias: paths.aliases
+    alias: paths.aliases,
+    modules: [paths.compiled, "node_modules"]
   }
 };

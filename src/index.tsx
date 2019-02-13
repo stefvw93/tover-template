@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { disableBodyScroll } from "body-scroll-lock";
 
 // components
-import { Main } from "@views/Main";
+import { Main } from "./Main";
 
 const $root = document.getElementById("root");
 disableBodyScroll($root);

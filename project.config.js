@@ -3,7 +3,7 @@ const localIp = require("local-ip")();
 
 module.exports = {
   app: {
-    title: "Propal'r"
+    title: "React boilerplate"
   },
 
   filenames: {
@@ -15,30 +15,26 @@ module.exports = {
     distribution: path.join(__dirname, "_dist"),
     webpack: path.join(__dirname, "_webpack"),
     templates: {
-      development: path.join("src", "template.development.pug"),
-      production: path.join("src", "template.production.pug")
+      development: path.join("src", "index.template.pug"),
+      production: path.join("src", "index.template.pug")
     },
     aliases: {
+      // "@authentication/*": ["authentication/*"],
       // "@common/*": ["common/*"],
-      // "@components/*": ["components/*"],
-      // "@enums/*": ["enums/*"],
-      // "@services/*": ["services/*"],
-      // "@store/*": ["store/*"],
-      // "@typings/*": ["typings/*"],
-      // "@views/*": ["views/*"],
+      // "@sub-modules/*": ["sub-modules/*"],
+      "@authentication": path.resolve(
+        __dirname,
+        "__compiled",
+        "authentication"
+      ),
       "@common": path.resolve(__dirname, "__compiled", "common"),
-      "@components": path.resolve(__dirname, "__compiled", "components"),
-      "@enums": path.resolve(__dirname, "__compiled", "enums"),
-      "@services": path.resolve(__dirname, "__compiled", "services"),
-      "@store": path.resolve(__dirname, "__compiled", "store"),
-      "@typings": path.resolve(__dirname, "__compiled", "typings"),
-      "@views": path.resolve(__dirname, "__compiled", "views")
+      "@sub-modules": path.resolve(__dirname, "__compiled", "sub-modules")
     }
   },
 
   devServer: {
     hot: true,
-    ip: localIp,
+    ip: "localhost", //localIp,
     open: true,
     port: 12020
   }

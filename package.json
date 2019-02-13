@@ -6,18 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf __compiled _dist node_modules",
-    "build:dev": "API_URL=\"https://staging.propalr.nl\" ANALYZE_BUILD=true node _scripts/build",
-    "build:quiet": "API_URL=\"https://quiet-api.propalr.nl\" node _scripts/build",
-    "build:quietdenbosch": "API_URL=\"https://quiet-denbosch-api.propalr.nl\" node _scripts/build",
-    "build:public": "API_URL=\"https://api.propalr.nl\" node _scripts/build",
-    "start": "API_URL=\"https://staging.propalr.nl\" node _scripts/dev"
+    "build:test": "API_URL=\"https://api.example.com\" ANALYZE_BUILD=true node _scripts/build",
+    "build": "API_URL=\"https://api.example.com\" node _scripts/build",
+    "start": "API_URL=\"https://development-api.example.com\" node _scripts/dev"
   },
   "author": "Stef van Wijchen",
   "license": "ISC",
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/body-scroll-lock": "^2.6.0",
+    "@types/color": "^3.0.0",
+    "@types/form-serialize": "^0.7.0",
+    "@types/history": "^4.7.2",
     "@types/jss": "^9.5.7",
+    "@types/lodash-es": "^4.17.1",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
     "@types/react-dom": "^16.0.11",
@@ -35,9 +37,17 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/free-regular-svg-icons": "^5.7.1",
+    "@fortawesome/free-solid-svg-icons": "^5.7.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "animejs": "^3.0.1",
     "axios": "^0.18.0",
     "body-scroll-lock": "^2.6.1",
+    "color": "^3.1.0",
     "csstips": "^0.3.0",
+    "form-serialize": "^0.7.2",
+    "history": "^4.7.2",
     "lodash-es": "^4.17.11",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",

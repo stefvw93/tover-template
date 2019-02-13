@@ -15,7 +15,7 @@ const webpackCommand = [
 // show api url
 console.log(
   `${colors.green.bold("Starting development mode...")}\n${colors.green.bold(
-    "API URL: "
+    "API URL:"
   )} ${process.env.API_URL}`
 );
 

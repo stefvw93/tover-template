@@ -9,13 +9,9 @@
     "outDir": "__compiled",
     "target": "es6",
     "paths": {
+      "@authentication/*": ["authentication/*"],
       "@common/*": ["common/*"],
-      "@components/*": ["components/*"],
-      "@enums/*": ["enums/*"],
-      "@services/*": ["services/*"],
-      "@store/*": ["store/*"],
-      "@typings/*": ["typings/*"],
-      "@views/*": ["views/*"]
+      "@sub-modules/*": ["sub-modules/*"]
     }
   },
   "exclude": ["node_modules"],
