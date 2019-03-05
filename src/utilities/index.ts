@@ -1,0 +1,1 @@
+export { boundMethod } from "./boundMethod";
