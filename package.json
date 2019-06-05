@@ -32,7 +32,7 @@
     "pug-loader": "^2.4.0",
     "typescript": "^3.2.4",
     "webpack": "^4.29.0",
-    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   },
@@ -42,7 +42,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "animejs": "^3.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "body-scroll-lock": "^2.6.1",
     "color": "^3.1.0",
     "csstips": "^0.3.0",
