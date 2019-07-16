@@ -1,20 +1,13 @@
-import React from "react";
-import { Route, Redirect, withRouter } from "react-router-dom";
-import { observer } from "mobx-react";
-
-// utils
-import { boundMethod } from "Utilities";
-
-// types
 import { IRouteProps } from "@common/elements/Router";
-import { IPrivateRouteState } from ".";
-
-// store
-// import { authenticationStore } from "@modules/store/authentication";
+import { observer } from "mobx-react";
+import React from "react";
+import { Redirect, Route, withRouter } from "react-router-dom";
+import { boundMethod } from "Utilities";
+import { IPrivateRouteProps, IPrivateRouteState } from ".";
 
 @observer
 class PrivateRouteClass extends React.Component<
-  IRouteProps,
+  IRouteProps & IPrivateRouteProps,
   IPrivateRouteState
 > {
   public render(): React.ReactNode {
@@ -35,4 +28,4 @@ class PrivateRouteClass extends React.Component<
   }
 }
 
-export const PrivateRoute = withRouter<any>(PrivateRouteClass);
+export const PrivateRoute = withRouter(PrivateRouteClass);
