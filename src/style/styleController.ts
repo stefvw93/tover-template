@@ -1,11 +1,13 @@
-import { style as createStyle, cssRule, cssRaw } from "typestyle";
-import { normalize, setupPage } from "csstips";
 import Color from "color";
+import { normalize, setupPage } from "csstips";
+import { createTypeStyle, cssRaw, cssRule, style, TypeStyle } from "typestyle";
+import { FontWeights, Shading } from ".";
 
-// types
-import { Shading, FontWeights } from ".";
-
-class StyleController {
+export class StyleController {
+  public static tagId = "main-app-style";
+  private instance: TypeStyle;
+  public create: typeof style;
+  public rule: typeof cssRule;
   private elementResetStack: string = [
     "button",
     "input",
@@ -94,10 +96,18 @@ class StyleController {
     cssRule("*", {
       "-webkit-tap-highlight-color": "rgba(0,0,0,0)"
     });
-  }
 
-  public create = createStyle;
-  public rule = cssRule;
+    const $style = document.createElement("style");
+    $style.id = StyleController.tagId;
+    document.head.appendChild($style);
+    this.instance = createTypeStyle($style);
+    this.create = this.instance.style;
+    this.rule = this.instance.cssRule;
+
+    this.create({
+      display: "block"
+    });
+  }
 
   public createBoxShadow(
     xOffset = 0,

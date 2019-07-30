@@ -1,5 +1,6 @@
 const { app, paths, filenames } = require("../project.config");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const DotENVWebpackPlugin = require("dotenv-webpack");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
@@ -13,6 +14,7 @@ module.exports = {
       template: `!!pug-loader!${paths.templates.production}`,
       inject: false
     }),
+    new DotENVWebpackPlugin(),
     process.env.ANALYZE_BUILD ? new BundleAnalyzerPlugin() : function() {}
   ],
   resolve: {
@@ -21,6 +23,8 @@ module.exports = {
   },
   output: { path: paths.distribution, filename: "[name].[chunkhash].js" },
   optimization: {
+    moduleIds: "hashed",
+    runtimeChunk: "single",
     splitChunks: {
       chunks: "all"
     }

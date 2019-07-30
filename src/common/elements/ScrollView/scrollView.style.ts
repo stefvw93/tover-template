@@ -1,7 +1,7 @@
-import { style } from "Style";
+import { styleController } from "style";
 
 export default {
-  scrollContainer: style.sheet({
+  scrollContainer: styleController.create({
     overflow: "scroll"
   })
 };
