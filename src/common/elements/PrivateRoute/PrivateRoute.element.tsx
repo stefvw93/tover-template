@@ -2,7 +2,7 @@ import { IRouteProps } from "@common/elements/Router";
 import { observer } from "mobx-react";
 import React from "react";
 import { Redirect, Route, withRouter } from "react-router-dom";
-import { boundMethod } from "Utilities";
+import { boundMethod } from "utilities";
 import { IPrivateRouteProps, IPrivateRouteState } from ".";
 
 @observer
