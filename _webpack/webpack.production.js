@@ -21,7 +21,10 @@ module.exports = {
     alias: paths.aliases,
     modules: [paths.compiled, "node_modules"]
   },
-  output: { path: paths.distribution, filename: "[name].[chunkhash].js" },
+  output: {
+    path: paths.pre_distribution,
+    filename: "[name].[contenthash].js"
+  },
   optimization: {
     moduleIds: "hashed",
     runtimeChunk: "single",

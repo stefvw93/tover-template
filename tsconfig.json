@@ -6,7 +6,7 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "__compiled",
+    "outDir": "__compiled/src",
     "target": "es6",
     "paths": {
       "@authentication/*": ["authentication/*"],

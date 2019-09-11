@@ -11,7 +11,7 @@ const $style = document.getElementById(StyleController.tagId);
 let doRenderApp = false;
 
 disableBodyScroll($root);
-
+alert("changed");
 function renderApp() {
   render(<App />, $root, function() {});
 }

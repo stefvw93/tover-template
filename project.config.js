@@ -11,7 +11,8 @@ module.exports = {
   },
 
   paths: {
-    compiled: path.join(__dirname, "__compiled"),
+    compiled: path.join(__dirname, "__compiled/src"),
+    pre_distribution: path.join(__dirname, "__compiled/pre-dist"),
     distribution: path.join(__dirname, "_dist"),
     webpack: path.join(__dirname, "_webpack"),
     templates: {
@@ -25,10 +26,16 @@ module.exports = {
       "@authentication": path.resolve(
         __dirname,
         "__compiled",
+        "src",
         "authentication"
       ),
-      "@common": path.resolve(__dirname, "__compiled", "common"),
-      "@sub-modules": path.resolve(__dirname, "__compiled", "sub-modules")
+      "@common": path.resolve(__dirname, "__compiled", "src", "common"),
+      "@sub-modules": path.resolve(
+        __dirname,
+        "__compiled",
+        "src",
+        "sub-modules"
+      )
     }
   },
 
