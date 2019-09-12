@@ -5,6 +5,8 @@ import { hot } from "react-hot-loader/root";
 import { StyleController } from "style/styleController";
 import { Main } from "./Main";
 
+alert(0);
+
 const App = hot(Main);
 const $root = document.getElementById("root");
 const $style = document.getElementById(StyleController.tagId);
