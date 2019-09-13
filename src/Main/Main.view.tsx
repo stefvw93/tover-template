@@ -1,4 +1,4 @@
-import { IRouteProps, Router } from "@common/elements/Router";
+import { IRouteProps, Router } from "common/elements/Router";
 import React from "react";
 import { IMainProps, IMainState } from ".";
 
