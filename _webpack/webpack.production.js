@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.templates.production}`,
+      template: `!!pug-loader!${paths.HTMLTemplate}`,
       inject: false
     }),
     new DotENVWebpackPlugin(),

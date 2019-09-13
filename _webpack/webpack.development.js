@@ -17,7 +17,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.templates.development}`,
+      template: `!!pug-loader!${paths.HTMLTemplate}`,
       inject: false
     }),
     new webpack.DefinePlugin({
