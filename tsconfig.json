@@ -6,7 +6,7 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "__compiled/src",
+    "outDir": "__compiled",
     "target": "es6"
   },
   "exclude": ["node_modules"],

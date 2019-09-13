@@ -11,8 +11,7 @@ module.exports = {
   },
 
   paths: {
-    compiled: path.join(__dirname, "__compiled/src"),
-    pre_distribution: path.join(__dirname, "__compiled/pre-dist"),
+    compiled: path.join(__dirname, "__compiled"),
     distribution: path.join(__dirname, "_dist"),
     webpack: path.join(__dirname, "_webpack"),
     HTMLTemplate: path.join(__dirname, "src", "index.template.pug")

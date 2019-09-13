@@ -7,8 +7,7 @@ const path = require("path");
 
 // build command joined by 'then'
 const buildCommand = [
-  // clear compiled and pre-dist folders
-  `rm -rf ${paths.pre_distribution} ${paths.compiled}`,
+  `rm -rf ${paths.compiled}`,
   "tsc",
   `webpack --config ${paths.webpack}/webpack.production --display-error-details`
 ].join(" && ");
