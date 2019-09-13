@@ -1,9 +1,6 @@
-const projectConfig = require("../project.config");
+const { paths } = require("../project-config");
 const { execSync } = require("child_process");
-const { paths } = projectConfig;
 const colors = require("colors");
-const fs = require("fs");
-const path = require("path");
 
 // build command joined by 'then'
 const buildCommand = [

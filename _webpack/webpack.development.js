@@ -1,4 +1,4 @@
-const { paths, filenames, devServer, app } = require("../project.config");
+const { app, devServer, entry, paths } = require("../project-config");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
@@ -12,7 +12,7 @@ module.exports = {
     historyApiFallback: true
   },
   context: paths.compiled,
-  entry: filenames.entry,
+  entry: entry,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({

@@ -1,14 +1,11 @@
 const path = require("path");
-const localIp = require("local-ip")();
 
 module.exports = {
   app: {
     title: "React boilerplate"
   },
 
-  filenames: {
-    entry: "./index.js"
-  },
+  entry: "./index.js",
 
   paths: {
     compiled: path.join(__dirname, "__compiled"),
