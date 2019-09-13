@@ -1,9 +1,4 @@
 {
   "plugins": ["react-hot-loader/babel"],
-  "presets": [
-    [
-      "@babel/preset-env",
-      { "targets": "android >= 7, ios >= 10, last 2 chrome versions" }
-    ]
-  ]
+  "presets": [["@babel/preset-env", { "targets": "android >= 6, ios >= 10" }]]
 }
