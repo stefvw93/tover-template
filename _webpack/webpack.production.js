@@ -1,7 +1,7 @@
 const { app, entry, paths } = require("../project-config");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const DotENVWebpackPlugin = require("dotenv-webpack");
-const EmitChangedOnlyPlugin = require("emit-changed-only-plugin");
+const EmitChangedOnlyPlugin = require("emit-changed-only-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
@@ -25,7 +25,7 @@ module.exports = {
   },
   output: {
     path: paths.distribution,
-    filename: "[name].[contenthash:4].js"
+    filename: "[name].[contenthash].js"
   },
   devtool: "source-map"
 };
