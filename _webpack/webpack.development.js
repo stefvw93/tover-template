@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { paths, filenames, devServer, app } = require("../project-config");
+=======
+const { app, devServer, entry, paths } = require("../project-config");
+>>>>>>> b4d5752e1eebd72a74a873a96f19c18bbc92a892
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
@@ -12,12 +16,12 @@ module.exports = {
     historyApiFallback: true
   },
   context: paths.compiled,
-  entry: filenames.entry,
+  entry: entry,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.templates.development}`,
+      template: `!!pug-loader!${paths.HTMLTemplate}`,
       inject: false
     }),
     new webpack.DefinePlugin({
