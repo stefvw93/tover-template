@@ -1,11 +1,6 @@
 const { execSync } = require("child_process");
 const { paths } = require("../project-config");
 const colors = require("colors/safe");
-<<<<<<< HEAD
-const projectConfig = require("../project-config");
-const { keys, paths } = projectConfig;
-=======
->>>>>>> b4d5752e1eebd72a74a873a96f19c18bbc92a892
 
 const webpackCommand = [
   // clean output dir

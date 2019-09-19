@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const { paths, filenames, devServer, app } = require("../project-config");
-=======
-const { app, devServer, entry, paths } = require("../project-config");
->>>>>>> b4d5752e1eebd72a74a873a96f19c18bbc92a892
+const { paths, entry, devServer, app } = require("../project-config");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
