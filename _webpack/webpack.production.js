@@ -1,32 +1,52 @@
-const { app, paths, filenames } = require("../project.config");
+const { entry, paths, app } = require("../project-config");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const DotENVWebpackPlugin = require("dotenv-webpack");
+const EmitChangedOnlyPlugin = require("emit-changed-only-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
   context: paths.compiled,
-  entry: filenames.entry,
+  devtool: "source-map",
+  entry: entry,
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: true,
+        terserOptions: {
+          keep_classnames: false,
+          keep_fnames: false,
+          mangle: true,
+          compress: {
+            drop_console: true
+          }
+        }
+      })
+    ]
+  },
+  output: {
+    path: paths.distribution,
+    filename: "[name].[contenthash].js"
+  },
   plugins: [
+    process.env.ANALYZE_BUILD ? new BundleAnalyzerPlugin() : function() {},
+    new CompressionPlugin(),
+    new DotENVWebpackPlugin(),
+    new EmitChangedOnlyPlugin({
+      exclude: /\.html/i
+    }),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.templates.production}`,
+      template: `!!pug-loader!${paths.HTMLTemplate}`,
       inject: false
-    }),
-    new DotENVWebpackPlugin(),
-    process.env.ANALYZE_BUILD ? new BundleAnalyzerPlugin() : function() {}
+    })
   ],
   resolve: {
     alias: paths.aliases,
     modules: [paths.compiled, "node_modules"]
-  },
-  output: { path: paths.distribution, filename: "[name].[chunkhash].js" },
-  optimization: {
-    moduleIds: "hashed",
-    runtimeChunk: "single",
-    splitChunks: {
-      chunks: "all"
-    }
   }
 };

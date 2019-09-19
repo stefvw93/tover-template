@@ -1,6 +1,6 @@
 const { execSync } = require("child_process");
 const colors = require("colors/safe");
-const projectConfig = require("../project.config");
+const projectConfig = require("../project-config");
 const { keys, paths } = projectConfig;
 
 const webpackCommand = [
@@ -13,11 +13,7 @@ const webpackCommand = [
 ].join(" ");
 
 // show api url
-console.log(
-  `${colors.green.bold("Starting development mode...")}\n${colors.green.bold(
-    "API URL:"
-  )} ${process.env.API_URL}`
-);
+console.log(`${colors.green.bold("Starting development mode...")}`);
 
 // remind to start tsc -w
 console.log(

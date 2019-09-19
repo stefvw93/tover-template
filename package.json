@@ -1,14 +1,17 @@
 {
-  "name": "ts-es6-webpack",
+  "name": "typescript-react-boilerplate",
   "version": "1.0.0",
-  "description": "React + typescript web app boilerplate",
-  "main": "index.js",
+  "description": "Typescript web app boilerplate ft. React",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefvw93/typescript-react-boilerplate"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf __compiled _dist node_modules",
-    "build:test": "API_URL=\"https://api.example.com\" ANALYZE_BUILD=true node _scripts/build",
-    "build": "API_URL=\"https://api.example.com\" node _scripts/build",
-    "start": "API_URL=\"https://development-api.example.com\" node _scripts/dev",
+    "clean": "rm -rf _dist node_modules",
+    "build:test": "ANALYZE_BUILD=true node _scripts/build",
+    "build": "node _scripts/build",
+    "start": "node _scripts/dev",
     "generate": "node _scripts/generate"
   },
   "author": "Stef van Wijchen",
@@ -27,6 +30,9 @@
     "@types/react-router-dom": "^4.3.4",
     "clean-webpack-plugin": "^3.0.0",
     "colors": "^1.3.3",
+    "compression-webpack-plugin": "^3.0.0",
+    "dotenv-webpack": "^1.7.0",
+    "emit-changed-only-webpack-plugin": "^2.0.4",
     "html-webpack-plugin": "^3.2.0",
     "local-ip": "^2.0.0",
     "pug": "^2.0.4",

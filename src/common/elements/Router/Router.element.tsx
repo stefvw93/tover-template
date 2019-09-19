@@ -1,12 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-
-// components
-import { PrivateRoute } from "@common/elements/PrivateRoute";
-import { List } from "@common/elements/List";
-
-// types
-import { IRouterProps, IRouterState, IRouteProps } from ".";
+import { IRouteProps, IRouterProps, IRouterState } from ".";
+import { List } from "../List";
+import { PrivateRoute } from "../PrivateRoute";
 
 export class Router extends React.Component<IRouterProps, IRouterState> {
   render(): React.ReactNode {

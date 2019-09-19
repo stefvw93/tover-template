@@ -1,5 +1,5 @@
 const { execSync } = require("child_process");
-const projectConfig = require("../project.config");
+const projectConfig = require("../project-config");
 const { paths } = projectConfig;
 const colors = require("colors");
 
@@ -12,7 +12,6 @@ const buildCommand = [
 ].join(" ");
 
 console.log(`${colors.green.bold("Compiling production...")}`);
-console.log(`${colors.green.bold("API URL: ")} ${process.env.API_URL}`);
 
 // build
 execSync(buildCommand, { stdio: "inherit" });

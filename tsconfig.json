@@ -6,13 +6,8 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "__compiled",
-    "target": "es6",
-    "paths": {
-      "@authentication/*": ["authentication/*"],
-      "@common/*": ["common/*"],
-      "@sub-modules/*": ["sub-modules/*"]
-    }
+    "outDir": "node_modules/.cache/typescript-react-boilerplate/__compiled",
+    "target": "es6"
   },
   "exclude": ["node_modules"],
   "include": ["./src"]
