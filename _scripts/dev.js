@@ -1,15 +1,7 @@
-const { execSync } = require("child_process");
-const { paths } = require("../project-config");
+const { spawn } = require("child_process");
+const { paths, devServer } = require("../project-config");
+const killPort = require("kill-port");
 const colors = require("colors/safe");
-
-const webpackCommand = [
-  // clean output dir
-  // `rm -rf ${paths.compiled};`,
-  // start webpack dev server with config and show error details
-  "webpack-dev-server",
-  `--config ${paths.webpack}/webpack.development`,
-  "--display-error-details"
-].join(" ");
 
 // show api url
 console.log(`${colors.green.bold("Starting development mode...")}`);
@@ -19,5 +11,11 @@ console.log(
   `${colors.green.bold("Remember")} to run \`${colors.bold("tsc -w")}\`.`
 );
 
-// webpack dev server
-execSync(webpackCommand, { stdio: "inherit" });
+killPort(devServer.port);
+
+const tscTask = spawn("tsc", ["-w"], { stdio: "inherit" });
+const webpackTask = spawn(
+  "webpack-dev-server",
+  ["--config", `${paths.webpack}/webpack.development`],
+  { stdio: "inherit" }
+);
