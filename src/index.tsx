@@ -7,45 +7,46 @@ import { Main } from "./Main";
 
 const App = hot(Main);
 const $root = document.getElementById("root");
-const $style = document.getElementById(StyleController.tagId);
-let doRenderApp = false;
+const $style = document.getElementById(
+  StyleController.tagId
+) as HTMLStyleElement;
 
-window.onload = function() {
-  if (doRenderApp) {
-    render(<App />, $root);
-    doRenderApp = false;
-  }
-};
-
-/**
- * Create a mutation observer for our main style element.
- * Render the React app after styles are created.
- *
- * This is done to prevent a few frames of unstyled elements.
- */
-new MutationObserver(function(
-  mutations: MutationRecord[],
-  observer: MutationObserver
-): void {
-  for (let mutation of mutations) {
-    // if child list has changed
-    if (mutation.type === "childList") {
-      // stop observing
-      observer.disconnect();
-      // render react app
-      render(<App />, $root);
-      doRenderApp = false;
-    }
-  }
-}).observe($style, {
-  attributes: true,
-  childList: true,
-  characterData: true
-});
-
-// accept hot module replacement updates
-if (module["hot"]) {
-  module["hot"].accept();
+function createApp() {
+  disableBodyScroll($root);
+  render(<App />, $root);
 }
 
-disableBodyScroll($root);
+// check if styles were created before this piece of code has been reached (somehow, it has happened)
+if ($style.innerHTML.length > 0) {
+  createApp();
+} else {
+  /**
+   * Create a MutationObserver that observes our main app style tag.
+   * The app should not render before the styles are done rendering.
+   *
+   * The app does not like to be exposed while naked 🙈
+   */
+  new MutationObserver(function(
+    mutations: MutationRecord[],
+    observer: MutationObserver
+  ): void {
+    for (let mutation of mutations) {
+      // if child list has changed -- style rules have been added to the style element
+      if (mutation.type === "childList") {
+        // stop observing
+        observer.disconnect();
+        // create app
+        createApp();
+      }
+    }
+  }).observe($style, {
+    attributes: true,
+    childList: true,
+    characterData: true
+  });
+}
+
+// accept hot module replacement
+if (process.env.NODE_ENV === "development" && module["hot"]) {
+  module["hot"].accept();
+}
