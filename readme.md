@@ -60,7 +60,7 @@ Code templates and output can be edited in `_scripts/code-templates` and `_scrip
 
 ### Existing source code
 
-This section roughly explains the source code that comes with the boilerplate. All existing modules are documented with comments.
+This section roughly explains the out-of-the-box boilerplate code. All existing modules are documented with comments.
 
 > `src/index.tsx`
 > Mounts your react app after styles are created.
@@ -77,25 +77,25 @@ This section roughly explains the source code that comes with the boilerplate. A
 > `src/common/elements`, `src/common/screens`
 > Common/reusable components like (ui) elements and screens.
 
-### Code file structure
+#### Code file structure
 
 This section just explains the current file structure. Obviously you can ignore this and do things your own way, but note you might want to edit [code templates](#generate-components).
 
 File structure concerning a leading class called `MyComponent` is used as an example here.
 
-#### `MyComponent`
+##### `MyComponent`
 
 This is a directory. The directory's leading concern is the `MyComponent` class, so it inherits the class name - note the capitalization.
 
-#### `MyComponent/MyComponent.element.tsx`
+##### `MyComponent/MyComponent.element.tsx`
 
 Exposes class `MyComponent`
 
-#### `MyComponent/MyComponent.style.ts`
+##### `MyComponent/MyComponent.style.ts`
 
 Exposes styles related to `MyComponent`
 
-#### `MyComponent/index.ts`
+##### `MyComponent/index.ts`
 
 Use to export modules and types. Also, this is where you make last alterations: For example, wrap a react component in `withRouter`, rename an export or expose typings.
 
