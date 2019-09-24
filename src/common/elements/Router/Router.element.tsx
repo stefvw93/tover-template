@@ -10,18 +10,19 @@ export class Router extends React.Component<IRouterProps, IRouterState> {
 
     return (
       <BrowserRouter>
-        <>
-          {before}
-          <List<IRouteProps>
-            items={routes}
-            template={this.createRouteTemplate}
-          />
-          {after}
-        </>
+        {before}
+        <List<IRouteProps> items={routes} template={this.createRouteTemplate} />
+        {after}
       </BrowserRouter>
     );
   }
 
+  /**
+   * Creates a Route node
+   * @param item route properties
+   * @param index
+   * @returns {Route} route node
+   */
   private createRouteTemplate(
     item: IRouteProps,
     index: number

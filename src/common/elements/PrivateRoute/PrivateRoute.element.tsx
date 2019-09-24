@@ -5,6 +5,9 @@ import { boundMethod } from "utilities";
 import { IPrivateRouteProps, IPrivateRouteState } from ".";
 import { IRouteProps } from "../Router";
 
+/**
+ * Private route UI component
+ */
 @observer
 class PrivateRouteClass extends React.Component<
   IRouteProps & IPrivateRouteProps,
@@ -22,6 +25,9 @@ class PrivateRouteClass extends React.Component<
     );
   }
 
+  /**
+   * Creates a redirect node that pushes '/login' to history when not authenticated
+   */
   @boundMethod
   private createRedirect(): React.ReactNode {
     return <Redirect to={this.props.redirectTo || "/login"} />;

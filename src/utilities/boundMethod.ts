@@ -1,4 +1,15 @@
-export const boundMethod: MethodDecorator = function(target, key, descriptor) {
+/**
+ * Binds the method to its parent's scope
+ *
+ * @param target
+ * @param key
+ * @param descriptor
+ */
+export function boundMethod<T>(
+  target: Object,
+  key: string | symbol,
+  descriptor: TypedPropertyDescriptor<T>
+) {
   let fn = descriptor.value;
 
   if (typeof fn !== "function") {
@@ -44,4 +55,4 @@ export const boundMethod: MethodDecorator = function(target, key, descriptor) {
       fn = value;
     }
   };
-};
+}

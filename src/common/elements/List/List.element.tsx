@@ -1,8 +1,9 @@
 import React from "react";
-
-// types
 import { IListProps, IListState } from ".";
 
+/**
+ * Performant list UI component
+ */
 export class List<ItemType = {}> extends React.Component<
   IListProps<ItemType>,
   IListState
@@ -11,6 +12,9 @@ export class List<ItemType = {}> extends React.Component<
     return this.createList();
   }
 
+  /**
+   * Creates a React Node of list items, using the 'props.template' function
+   */
   private createList(): React.ReactNode {
     const { items, template } = this.props;
     const _nodes: React.ReactNode[] = [];
