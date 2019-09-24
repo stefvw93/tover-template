@@ -44,7 +44,7 @@ Webpack configuration is in `_webpack/webpack.<mode>.js`.
 $ npm run generate <name> <type>
 ```
 
-Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [File structure](#file-structure))
+Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
 
 ```bash
 $ npm run generate Button
@@ -60,7 +60,7 @@ Code templates and output can be edited in `_scripts/code-templates` and `_scrip
 
 ### Existing source code
 
-This section explains the source code that comes with the boilerplate.
+This section roughly explains the source code that comes with the boilerplate. All existing modules are documented with comments.
 
 > `src/index.tsx`
 > Mounts your react app after styles are created.
