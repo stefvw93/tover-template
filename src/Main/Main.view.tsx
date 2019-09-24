@@ -1,6 +1,7 @@
 import { IRouteProps, Router } from "common/elements/Router";
 import React from "react";
 import { IMainProps, IMainState } from ".";
+import { classNames } from "./main.style";
 
 const routes: IRouteProps[] = [
   {
@@ -14,17 +15,22 @@ const routes: IRouteProps[] = [
 export class Main extends React.Component<IMainProps, IMainState> {
   render(): React.ReactNode {
     return (
-      <div>
-        <h1>Thanks for using ts-es-webpack</h1>
+      <div className={classNames.container}>
+        <h1>Hello, world!</h1>
         <p>
-          Made with ❤️ by{" "}
-          <a target="_blank" href="https://github.com/stefvw93">
-            Stef van Wijchen
+          {"You are using "}
+          <a
+            target="_blank"
+            href="https://github.com/stefvw93/typescript-react-boilerplate"
+          >
+            {"typescript-react-boilerplate"}
           </a>
+          {"."}
         </p>
         <p>
-          <a target="_blank" href="https://github.com/stefvw93/ts-es6-webpack">
-            Check the readme for more info
+          {"Made with ❤️ by "}
+          <a target="_blank" href="https://github.com/stefvw93">
+            {"Stef van Wijchen"}
           </a>
         </p>
         <Router routes={routes} />

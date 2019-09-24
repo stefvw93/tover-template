@@ -1,7 +1,7 @@
 import { disableBodyScroll } from "body-scroll-lock";
 import React from "react";
 import { IScrollViewProps, IScrollViewState } from ".";
-import style from "./scrollView.style";
+import { classNames } from "./scrollView.style";
 
 /**
  * Scroll view UI component
@@ -22,7 +22,7 @@ export class ScrollView extends React.Component<
     return (
       <div
         ref={this.containerRef}
-        className={style.scrollContainer}
+        className={classNames.scrollContainer}
         style={containerStyle}
       >
         {children}
