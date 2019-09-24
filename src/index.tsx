@@ -17,6 +17,12 @@ window.onload = function() {
   }
 };
 
+/**
+ * Create a mutation observer for our main style element.
+ * Render the React app after styles are created.
+ *
+ * This is done to prevent a few frames of unstyled elements.
+ */
 new MutationObserver(function(
   mutations: MutationRecord[],
   observer: MutationObserver
@@ -37,6 +43,7 @@ new MutationObserver(function(
   characterData: true
 });
 
+// accept hot module replacement updates
 if (module["hot"]) {
   module["hot"].accept();
 }

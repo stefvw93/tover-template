@@ -29,7 +29,7 @@ Webpack configuration is in `_webpack/webpack.<mode>.js`.
 ### Generate components
 
 ```bash
-$ npm run generate <nam<type>
+$ npm run generate <name> <type>
 ```
 
 Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [File structure](#code-dir-structure))
