@@ -1,4 +1,4 @@
-__compiled/
+.cache
 _dist/
 .DS_STORE
 .vscode/
