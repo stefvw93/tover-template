@@ -8,7 +8,7 @@ Featuring:
 - CSS in JS with [Typestyle](https://typestyle.github.io/)
 - [Webpack dev server](https://reacttraining.com/react-router/web/guides/quick-start) with [hot module replacement](https://github.com/gaearon/react-hot-loader) for React components
 - Typescript tree-shaking for smaller build size
-- My [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
+- [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
 
 ## Usage
 
