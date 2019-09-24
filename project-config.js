@@ -16,13 +16,7 @@ module.exports = {
   entry: "./index.js",
 
   paths: {
-    compiled: path.join(
-      __dirname,
-      "node_modules",
-      ".cache",
-      package.name,
-      "__compiled"
-    ),
+    compiled: path.join(__dirname, ".cache"),
     distribution: path.join(__dirname, "_dist"),
     HTMLTemplate: path.join(__dirname, "src", "index.template.pug"),
     webpack: path.join(__dirname, "_webpack")

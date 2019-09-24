@@ -6,7 +6,7 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "node_modules/.cache/typescript-react-boilerplate/__compiled",
+    "outDir": ".cache",
     "target": "es6"
   },
   "exclude": ["node_modules"],
