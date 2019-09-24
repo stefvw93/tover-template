@@ -91,9 +91,9 @@ This is a directory. The directory's leading concern is the `MyComponent` class,
 
 Exposes class `MyComponent`
 
-##### `MyComponent/MyComponent.style.ts`
+##### `MyComponent/myComponent.style.ts`
 
-Exposes styles related to `MyComponent`
+Exposes styles related to `MyComponent`. Note that this module's file name is not capitalized, as it does not expose a class.
 
 ##### `MyComponent/index.ts`
 
