@@ -12,7 +12,6 @@ const rl = readline.createInterface({
 const questionMap = {
   author: "",
   packageName: "",
-  displayName: "",
   repositoryURL: "",
   repositoryType: "",
   description: ""
@@ -21,7 +20,6 @@ const questionMap = {
 const questions = Object.assign({}, questionMap, {
   author: "author",
   packageName: "package name (kebab-case)",
-  displayName: "display name (Title)",
   repositoryURL: "repository",
   repositoryType: "repository type (git, svn)",
   description: "description"

@@ -1,10 +1,10 @@
 {
-  "name": "d",
+  "name": "typescript-react-boilerplate",
   "version": "1.0.0",
-  "description": "d",
+  "description": "Typescript React boilerplate",
   "repository": {
-    "type": "d",
-    "url": "d"
+    "type": "git",
+    "url": "https://github.com/stefvw93/typescript-react-boilerplate.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,7 @@
     "generate": "node _scripts/generate",
     "setup": "node _scripts/setup"
   },
-  "author": "d",
+  "author": "Stef van Wijchen",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
