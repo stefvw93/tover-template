@@ -20,6 +20,18 @@ $ npm run setup
 
 This will prompt some questions to create an initial project setup.
 
+### Run your project
+
+```bash
+$ npm run start
+```
+
+### Build your project
+
+```bash
+$ npm run build
+```
+
 ### Configure your project
 
 You can edit `project-config.js` to change basic project configuration settings like dev server port, display name or paths.
@@ -32,7 +44,7 @@ Webpack configuration is in `_webpack/webpack.<mode>.js`.
 $ npm run generate <name> <type>
 ```
 
-Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [File structure](#code-dir-structure))
+Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [File structure](#file-structure))
 
 ```bash
 $ npm run generate Button
@@ -80,6 +92,9 @@ Code templates and output can be edited in `_scripts/code-templates` and `_scrip
 `./index.ts`
 
 > Make last alterations and export. For example, wrap a react component in `withRouter`, rename a component or expose types. Classes should be named exports, so the class name is consistent across the project, e.g.
+
 > `import { MyComponent } from "common/elements/MyComponent"`
+
 > instead of a default export like so;
+
 > `import IChangedTheName from "common/elements/MyComponent`.
