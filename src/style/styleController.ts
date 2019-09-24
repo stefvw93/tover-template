@@ -1,14 +1,18 @@
 import Color from "color";
 import { normalize, setupPage } from "csstips";
-import { createTypeStyle, cssRaw, cssRule, style, TypeStyle } from "typestyle";
-import { FontWeights, Shading } from ".";
+import { createTypeStyle, cssRaw, cssRule, TypeStyle } from "typestyle";
+import { NestedCSSProperties } from "typestyle/lib/types";
+import { Font } from ".";
 
 export class StyleController {
+  // id for HTML style tag
   public static tagId = "main-app-style";
+
+  // typestyle instance
   private instance: TypeStyle;
-  public create: typeof style;
-  public rule: typeof cssRule;
-  private elementResetStack: string = [
+
+  // HTML elements to reset styling of
+  private elementResetStack: string[] = [
     "button",
     "input",
     "optgroup",
@@ -28,8 +32,10 @@ export class StyleController {
     `input[type="search"]`,
     `input[type="search"]::-webkit-search-cancel-button`,
     `input[type="search"]::-webkit-search-decoration`
-  ].join(",");
-  private systemFontStack: string = [
+  ];
+
+  // system font backup
+  private systemFontStack = [
     "system-ui",
     "-apple-system",
     "BlinkMacSystemFont",
@@ -39,35 +45,47 @@ export class StyleController {
     "Ubuntu,Cantarell",
     "Helvetica Neue",
     "sans-serif"
-  ].join(",");
+  ];
 
-  private bodyFontStack = this.systemFontStack;
-  private headerFontStack: string = ["Montserrat", this.bodyFontStack].join(
-    ","
-  );
-  private headerFontWeights: FontWeights = [400, 600, 800];
-  private bodyFontWeights: FontWeights = [400, 600, 800];
+  // fonts
+  private googleFonts: Font[] = [
+    {
+      family: "Rubik",
+      weights: [300, 400, 500, 700]
+    }
+  ];
+  private fonts: Font[] = this.googleFonts;
+  private bodyFontStack: string[] = [
+    this.fonts[0].family,
+    ...this.systemFontStack
+  ];
+  private headerFontStack: string[] = [
+    this.fonts[0].family,
+    ...this.systemFontStack
+  ];
 
-  public static colors = {
-    // https://flatuicolors.com/palette/au
+  // colors
+  private colors = {
     text: Color("#131313"),
     wizardGrey: Color("#535c68"),
     pureApple: Color("#6ab04c"),
     carminePink: Color("#eb4d4b")
   };
-  public colorShadesLight: Shading = [0.2, 0.5, 1];
-  public colorShadesDark: Shading = [0.1, 0.3, 0.5];
-
-  private colors = StyleController.colors;
-  private borderRadii: number[] = [4, 6, 8];
-  private spacing: number = 8;
+  private borderRadii = [15];
+  private spacing: number = 10;
   private horizontalSpacingFactor: number = 1;
-  private verticalSpacingFactor: number = 1.5;
+  private verticalSpacingFactor: number = 1.2;
 
   constructor() {
+    // always create @import's before any other css
+    cssRaw(this.createGoogleFontImport());
+
+    // https://typestyle.github.io/#/page
     setupPage("#root");
     normalize();
-    cssRule(this.elementResetStack, {
+
+    // add reset style rule to the element stack
+    cssRule(this.elementResetStack.join(","), {
       background: "none",
       backgroundColor: "transparent",
       backgroundImage: "none",
@@ -78,57 +96,108 @@ export class StyleController {
       outline: "inherit",
       padding: 0
     });
+
+    // set base html styles
     cssRule("html", {
       fontSize: "16px",
       background: this.colors.wizardGrey.lighten(1.65).toString()
     });
+
+    // set base body styles
     cssRule("body", {
       color: this.colors.text.toString(),
       fontFamily: this.systemFontStack,
       fontSize: "1rem"
     });
+
+    // use raw css to add font smoothing because typestyle doesn't have typings for this :(
     cssRaw(`
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
     `);
-    cssRule("*", {
-      "-webkit-tap-highlight-color": "rgba(0,0,0,0)"
-    });
 
+    /**
+     * Create a style element
+     * assign an id
+     * append the style element
+     * instantiate TypeStyle and pass our style element
+     */
     const $style = document.createElement("style");
     $style.id = StyleController.tagId;
     document.head.appendChild($style);
     this.instance = createTypeStyle($style);
-    this.create = this.instance.style;
-    this.rule = this.instance.cssRule;
 
-    this.create({
-      display: "block"
+    // Create a style to fill the style tag (used in DOM Mutation observer, check src/index.ts)
+    this.rule(`.Guarantee-${StyleController.tagId}`, {
+      $debugName: `Guarantee-${StyleController.tagId}`,
+      all: "unset"
     });
   }
 
-  public createBoxShadow(
-    xOffset = 0,
-    yOffset = 0,
-    blur = 5,
-    opacity = 0.3
-  ): string {
-    return `${xOffset}px ${yOffset}px ${blur}px rgba(0,0,0,${opacity})`;
+  /**
+   * create a css rule, then generate and return the unique css class name
+   *
+   * @param objects nested css properties
+   * @returns css class name
+   */
+  public create(...objects: NestedCSSProperties[]): string {
+    return this.instance.style(...objects);
   }
 
+  /**
+   * create a css rule
+   *
+   * @param selector css selector
+   * @param objects nested css properties
+   */
+  public rule(selector: string, ...objects: NestedCSSProperties[]): void {
+    return this.instance.cssRule(selector, ...objects);
+  }
+
+  /**
+   * Creates a google font css @import statement from the font stack
+   */
+  private createGoogleFontImport(): string {
+    const fonts = this.googleFonts
+      .map(function(font) {
+        return [font.family, font.weights.join(",")].join(":");
+      })
+      .join("|");
+
+    const importStatement = `
+      @import url('https://fonts.googleapis.com/css?family=${fonts}&display=swap');
+    `;
+
+    return importStatement;
+  }
+
+  /**
+   * Creates a css box-shadow value
+   *
+   * @param xOffset shadow offset on x axis
+   * @param yOffset shadow offset on y axis
+   * @param blur blur radius
+   * @param spread spread size
+   * @param color color of the shadow
+   * @returns css box-shadow property value
+   */
+  public createBoxShadow(
+    xOffset = 0,
+    yOffset = 10,
+    blur = 40,
+    spread = -15,
+    color = "rgba(0,0,0,0.6)"
+  ): string {
+    return `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color})`;
+  }
+
+  // expose a style guide
   public guide = {
     colors: this.colors,
     borderRadii: this.borderRadii,
-    fonts: {
-      header: this.headerFontStack,
-      body: this.bodyFontStack
-    },
-    fontWeights: {
-      header: this.headerFontWeights,
-      body: this.bodyFontWeights
-    },
+    fonts: this.fonts,
     spacing: {
       base: this.spacing,
       horizontal: this.spacing * this.horizontalSpacingFactor,
