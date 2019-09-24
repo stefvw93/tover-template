@@ -97,19 +97,19 @@ Exposes styles related to `MyComponent`. Note that this module's file name is no
 
 ##### `MyComponent/index.ts`
 
-Use to export modules and types. Also, this is where you make last alterations: For example, wrap a react component in `withRouter`, rename an export or expose typings.
+Use to export modules and types related to `MyComponent`. Also, this is where you make last alterations: For example, wrap a react component in `withRouter`, rename an export or expose typings.
 
 Classes should be named exports, so the class name is consistent across the project, e.g:
 
 ```typescript
-// MyComponent.element.ts
+// MyComponent/MyComponent.element.ts
 export class MyComponent {
   // ...
 }
 ```
 
 ```typescript
-// index.ts
+// MyComponent/index.ts
 export MyComponent from "./MyComponent.element";
 ```
 
