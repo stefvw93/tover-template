@@ -75,26 +75,45 @@ Code templates and output can be edited in `_scripts/code-templates` and `_scrip
 > `src/common/elements`, `src/common/screens`
 > Common/reusable components like (ui) elements and screens.
 
-### Code dir structure
+### Code file structure
 
-`MyComponent`
+This section just explains the current file structure. Obviously you can ignore this and do things your own way, but note you might want to edit [code templates](#generate-components).
 
-> This directory's leading concern is the `MyComponent` class. So the directory name is the same as the component class - thus capitalized.
+File structure concerning a leading class called `MyComponent` is used as an example here.
 
-`./MyComponent.element.tsx`
+#### `MyComponent`
 
-> component logic
+This is a directory. The directory's leading concern is the `MyComponent` class, so it inherits the class name - note the capitalization.
 
-`./MyComponent.style.ts`
+#### `MyComponent/MyComponent.element.tsx`
 
-> component styles
+Exposes class `MyComponent`
 
-`./index.ts`
+#### `MyComponent/MyComponent.style.ts`
 
-> Make last alterations and export. For example, wrap a react component in `withRouter`, rename a component or expose types. Classes should be named exports, so the class name is consistent across the project, e.g.
+Exposes styles related to `MyComponent`
 
-> `import { MyComponent } from "common/elements/MyComponent"`
+#### `MyComponent/index.ts`
 
-> instead of a default export like so;
+Use to export modules and types. Also, this is where you make last alterations: For example, wrap a react component in `withRouter`, rename an export or expose typings.
 
-> `import IChangedTheName from "common/elements/MyComponent`.
+Classes should be named exports, so the class name is consistent across the project, e.g:
+
+```typescript
+// MyComponent.element.ts
+export class MyComponent {
+  // ...
+}
+```
+
+```typescript
+// index.ts
+export MyComponent from "./MyComponent.element";
+```
+
+```typescript
+// some other module
+import { MyComponent } from "common/elements/MyComponent"`
+```
+
+Never use default exports.
