@@ -99,7 +99,7 @@ Exposes styles related to `MyComponent`. Note that this module's file name is no
 
 Use to export modules and types related to `MyComponent`. Also, this is where you make last alterations: For example, wrap a react component in `withRouter`, rename an export or expose typings.
 
-Classes should be named exports, so the class name is consistent across the project, e.g:
+Classes should be named exports - never default exports, so the class name is consistent across the project, e.g:
 
 ```typescript
 // MyComponent/MyComponent.element.ts
@@ -117,5 +117,3 @@ export MyComponent from "./MyComponent.element";
 // some other module
 import { MyComponent } from "common/elements/MyComponent"`
 ```
-
-Never use default exports.
