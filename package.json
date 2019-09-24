@@ -1,10 +1,10 @@
 {
-  "name": "typescript-react-boilerplate",
+  "name": "d",
   "version": "1.0.0",
-  "description": "Typescript web app boilerplate ft. React",
+  "description": "d",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/stefvw93/typescript-react-boilerplate"
+    "type": "d",
+    "url": "d"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,9 +12,10 @@
     "build:test": "ANALYZE_BUILD=true node _scripts/build",
     "build": "node _scripts/build",
     "start": "node _scripts/dev",
-    "generate": "node _scripts/generate"
+    "generate": "node _scripts/generate",
+    "setup": "node _scripts/setup"
   },
-  "author": "Stef van Wijchen",
+  "author": "d",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
@@ -44,7 +45,8 @@
     "webpack": "^4.35.3",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "write-pkg": "^4.0.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
@@ -52,7 +54,6 @@
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "animejs": "^3.0.1",
     "axios": "^0.19.0",
     "body-scroll-lock": "^2.6.4",
     "color": "^3.1.2",

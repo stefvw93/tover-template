@@ -1,7 +1,31 @@
 # Typescript React Boilerplate
 
-❗ Don't forget to update `tsconfig.json > outDir` when you change package name.
+## Usage
 
-🛠 Change `project-config.js` to tailor the project to your wishes.
+### Set up your project
 
-Happy coding 🔥
+```bash
+$ npm run setup
+```
+
+This will prompt some questions to create an initial project setup.
+
+### Configure your project
+
+You can edit `project-config.js` to change basic project configuration settings.
+
+Webpack configuration is in `_webpack/webpack.<mode>.js`.
+
+### Generate components
+
+You can generate React components by running this command:
+
+```bash
+$ npm run generate <name> <type>
+```
+
+Where name is your component name, and type is either `"element"` (default) or `"screen"`.
+
+```bash
+$ npm run generate Button
+```
