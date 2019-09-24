@@ -103,6 +103,7 @@ Classes should be named exports - never default exports, so the class name is co
 
 ```typescript
 // MyComponent/MyComponent.element.ts
+
 export class MyComponent {
   // ...
 }
@@ -110,10 +111,12 @@ export class MyComponent {
 
 ```typescript
 // MyComponent/index.ts
+
 export MyComponent from "./MyComponent.element";
 ```
 
 ```typescript
 // some other module
+
 import { MyComponent } from "common/elements/MyComponent"`
 ```
