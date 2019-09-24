@@ -58,13 +58,15 @@ $ npm run generate Login screen
 
 Code templates and output can be edited in `_scripts/code-templates` and `_scripts/generate.js`.
 
-### File structure
+### Existing source code
+
+This section explains the source code that comes with the boilerplate.
 
 > `src/index.tsx`
 > Mounts your react app after styles are created.
 
 > `src/Main`
-> React root component
+> Root app component
 
 > `src/style`
 > Style controller and other style related code
