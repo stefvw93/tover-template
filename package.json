@@ -41,6 +41,7 @@
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "react-hot-loader": "^4.12.7",
+    "rimraf": "^3.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3",
     "webpack-bundle-analyzer": "^3.3.2",
