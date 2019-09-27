@@ -5,7 +5,14 @@ import { hot } from "react-hot-loader/root";
 import { StyleController } from "style/styleController";
 import { Main } from "./Main";
 
-const App = hot(Main);
+let App: typeof Main;
+
+if (process.env.NODE_ENV === "development") {
+  App = hot(Main);
+} else {
+  App = Main;
+}
+
 const $root = document.getElementById("root");
 const $style = document.getElementById(
   StyleController.tagId
