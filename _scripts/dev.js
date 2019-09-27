@@ -1,4 +1,4 @@
-const { spawn } = require("child_process");
+const { spawn, spawnSync } = require("child_process");
 const { paths, devServer } = require("../project-config");
 const colors = require("colors/safe");
 
@@ -10,8 +10,9 @@ const childProcessOptions = {
   shell: /^win/.test(process.platform)
 };
 
-const tscTask = spawn("tsc", ["-w"], childProcessOptions);
-const webpackTask = spawn(
+spawnSync("tsc");
+spawn("tsc", ["-w", "--incremental"], childProcessOptions);
+spawn(
   "webpack-dev-server",
   ["--config", `${paths.webpack}/webpack.development`],
   childProcessOptions
