@@ -13,6 +13,20 @@ module.exports = {
   },
   context: paths.compiled,
   entry: entry,
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            plugins: ["react-hot-loader/babel"]
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
