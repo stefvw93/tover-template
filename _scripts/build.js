@@ -1,21 +1,20 @@
 const { paths } = require("../project-config");
 const { execSync } = require("child_process");
 const colors = require("colors");
+const rimraf = require("rimraf");
 
 // build command joined by 'then'
-const clearCompiled = `rm -rf ${paths.compiled}`;
 const compileTypeScript = "tsc";
 const webpack = `webpack --config ${paths.webpack}/webpack.production --display-error-details`;
-const buildCommand = [
-  clearCompiled,
-  compileTypeScript,
-  webpack,
-  clearCompiled
-].join(" && ");
+const buildCommand = [compileTypeScript, webpack].join(" && ");
+const childProcessOptions = {
+  stdio: "inherit",
+  shell: /^win/.test(process.platform)
+};
 
-/**
- * Execute build
- */
 console.log(`${colors.green.bold("Compiling production...")}`);
 
-execSync(buildCommand, { stdio: "inherit" });
+// execute build
+rimraf.sync(paths.compiled);
+execSync(buildCommand, childProcessOptions);
+rimraf.sync(paths.compiled);
