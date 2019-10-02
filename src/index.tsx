@@ -19,7 +19,7 @@ const $style = document.getElementById(
 ) as HTMLStyleElement;
 
 function createApp() {
-  disableBodyScroll($root);
+//   disableBodyScroll($root);
   render(<App />, $root);
 }
 
