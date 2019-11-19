@@ -1,1 +1,1 @@
-export { boundMethod } from "./boundMethod";
+export { boundMethod } from './boundMethod';

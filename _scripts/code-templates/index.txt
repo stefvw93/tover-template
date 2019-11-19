@@ -1,4 +1,4 @@
 export interface ICOMPONENTNAMEProps {}
 export interface ICOMPONENTNAMEState {}
 
-export { COMPONENTNAME } from "./COMPONENTNAME.COMPONENTTYPE";
+export { COMPONENTNAME } from './COMPONENTNAME.COMPONENTTYPE';

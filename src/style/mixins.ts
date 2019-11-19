@@ -1,14 +1,14 @@
-import { styleController } from "./styleController";
+import { styleController } from './styleController';
 
 function createRow(
   spacingFactor: number = 1,
-  usePadding: boolean = false
+  usePadding: boolean = false,
 ): string {
   const _verticalSpacing =
     styleController.guide.spacing.vertical * spacingFactor;
   return styleController.create({
-    [usePadding ? "paddingTop" : "marginTop"]: `${_verticalSpacing}px`,
-    [usePadding ? "paddingBottom" : "marginBottom"]: `${_verticalSpacing}px`
+    [usePadding ? 'paddingTop' : 'marginTop']: `${_verticalSpacing}px`,
+    [usePadding ? 'paddingBottom' : 'marginBottom']: `${_verticalSpacing}px`,
   });
 }
 function createColumn(spacingFactor: number = 1): string {
@@ -16,11 +16,11 @@ function createColumn(spacingFactor: number = 1): string {
     styleController.guide.spacing.horizontal * spacingFactor;
   return styleController.create({
     paddingLeft: `${_horizontalSpacing}px`,
-    paddingRight: `${_horizontalSpacing}px`
+    paddingRight: `${_horizontalSpacing}px`,
   });
 }
 
 export const mixins = {
   row: createRow,
-  column: createColumn
+  column: createColumn,
 };

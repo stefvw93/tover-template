@@ -1,9 +1,9 @@
-import { observer } from "mobx-react";
-import React from "react";
-import { Redirect, Route, withRouter } from "react-router-dom";
-import { boundMethod } from "utilities";
-import { IPrivateRouteProps, IPrivateRouteState } from ".";
-import { IRouteProps } from "../Router";
+import { observer } from 'mobx-react';
+import React from 'react';
+import { Redirect, Route, withRouter } from 'react-router-dom';
+import { boundMethod } from 'utilities';
+import { IPrivateRouteProps, IPrivateRouteState } from '.';
+import { IRouteProps } from '../Router';
 
 /**
  * Private route UI component
@@ -30,7 +30,7 @@ class PrivateRouteClass extends React.Component<
    */
   @boundMethod
   private createRedirect(): React.ReactNode {
-    return <Redirect to={this.props.redirectTo || "/login"} />;
+    return <Redirect to={this.props.redirectTo || '/login'} />;
   }
 }
 

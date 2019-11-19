@@ -1,7 +1,7 @@
-import { disableBodyScroll } from "body-scroll-lock";
-import React from "react";
-import { IScrollViewProps, IScrollViewState } from ".";
-import { classNames } from "./scrollView.style";
+import { disableBodyScroll } from 'body-scroll-lock';
+import React from 'react';
+import { IScrollViewProps, IScrollViewState } from '.';
+import { classNames } from './scrollView.style';
 
 /**
  * Scroll view UI component
@@ -11,7 +11,7 @@ export class ScrollView extends React.Component<
   IScrollViewState
 > {
   public static defaultProps: IScrollViewProps = {
-    snapToPosition: false
+    snapToPosition: false,
   };
 
   private containerRef = React.createRef<HTMLDivElement>();
@@ -43,7 +43,7 @@ export class ScrollView extends React.Component<
     const style: React.CSSProperties = {
       width,
       height,
-      WebkitOverflowScrolling: snapToPosition ? "unset" : "touch"
+      WebkitOverflowScrolling: snapToPosition ? 'unset' : 'touch',
     };
 
     return style;

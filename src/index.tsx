@@ -1,25 +1,25 @@
-import { disableBodyScroll } from "body-scroll-lock";
-import React from "react";
-import { render } from "react-dom";
-import { hot } from "react-hot-loader/root";
-import { StyleController } from "style/styleController";
-import { Main } from "./Main";
+import { disableBodyScroll } from 'body-scroll-lock';
+import React from 'react';
+import { render } from 'react-dom';
+import { hot } from 'react-hot-loader/root';
+import { StyleController } from 'style/styleController';
+import { Main } from './Main';
 
 let App: typeof Main;
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   App = hot(Main);
 } else {
   App = Main;
 }
 
-const $root = document.getElementById("root");
+const $root = document.getElementById('root');
 const $style = document.getElementById(
-  StyleController.tagId
+  StyleController.tagId,
 ) as HTMLStyleElement;
 
 function createApp() {
-//   disableBodyScroll($root);
+  //   disableBodyScroll($root);
   render(<App />, $root);
 }
 
@@ -35,11 +35,11 @@ if ($style.innerHTML.length > 0) {
    */
   new MutationObserver(function(
     mutations: MutationRecord[],
-    observer: MutationObserver
+    observer: MutationObserver,
   ): void {
     for (let mutation of mutations) {
       // if child list has changed -- style rules have been added to the style element
-      if (mutation.type === "childList") {
+      if (mutation.type === 'childList') {
         // stop observing
         observer.disconnect();
         // create app
@@ -49,11 +49,11 @@ if ($style.innerHTML.length > 0) {
   }).observe($style, {
     attributes: true,
     childList: true,
-    characterData: true
+    characterData: true,
   });
 }
 
 // accept hot module replacement
-if (process.env.NODE_ENV === "development" && module["hot"]) {
-  module["hot"].accept();
+if (process.env.NODE_ENV === 'development' && module['hot']) {
+  module['hot'].accept();
 }

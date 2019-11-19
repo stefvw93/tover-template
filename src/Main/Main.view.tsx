@@ -1,36 +1,36 @@
-import { IRouteProps, Router } from "common/elements/Router";
-import React from "react";
-import { IMainProps, IMainState } from ".";
-import { classNames } from "./main.style";
+import { IRouteProps, Router } from 'common/elements/Router';
+import React from 'react';
+import { IMainProps, IMainState } from '.';
+import { classNames } from './main.style';
 
 const routes: IRouteProps[] = [
   {
-    path: "/",
+    path: '/',
     exact: true,
     private: true,
-    redirectTo: "/login"
-  }
+    redirectTo: '/login',
+  },
 ];
 
 export class Main extends React.Component<IMainProps, IMainState> {
-  render(): React.ReactNode {
+  public render(): React.ReactNode {
     return (
       <div className={classNames.container}>
         <h1>Hello, world!</h1>
         <p>
-          {"You are using "}
+          {'You are using '}
           <a
             target="_blank"
             href="https://github.com/stefvw93/typescript-react-boilerplate"
           >
-            {"typescript-react-boilerplate"}
+            {'typescript-react-boilerplate'}
           </a>
-          {"."}
+          {'.'}
         </p>
         <p>
-          {"Made with ❤️ by "}
+          {'Made with ❤️ by '}
           <a target="_blank" href="https://github.com/stefvw93">
-            {"Stef van Wijchen"}
+            {'Stef van Wijchen'}
           </a>
         </p>
         <Router routes={routes} />

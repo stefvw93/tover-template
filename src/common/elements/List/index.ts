@@ -5,4 +5,4 @@ export interface IListProps<T> {
 
 export interface IListState {}
 
-export { List } from "./List.element";
+export { List } from './List.element';

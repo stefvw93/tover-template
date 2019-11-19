@@ -5,4 +5,4 @@ export interface IScrollViewProps {
 }
 export interface IScrollViewState {}
 
-export { ScrollView } from "./ScrollView.element";
+export { ScrollView } from './ScrollView.element';

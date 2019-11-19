@@ -1,14 +1,12 @@
-import React from "react";
-import { classNames } from "./COMPONENTSTYLE.style";
-import { ICOMPONENTNAMEProps, ICOMPONENTNAMEState } from ".";
+import React from 'react';
+import { ICOMPONENTNAMEProps, ICOMPONENTNAMEState } from '.';
+import { classNames } from './COMPONENTSTYLE.style';
 
 export class COMPONENTNAME extends React.Component<
   ICOMPONENTNAMEProps,
   ICOMPONENTNAMEState
 > {
   public render(): React.ReactNode {
-    return <div className={classNames.container}>
-      {"COMPONENTNAME"}
-    </div>;
+    return <div className={classNames.container}>{'COMPONENTNAME'}</div>;
   }
 }

@@ -8,13 +8,13 @@
 export function boundMethod<T>(
   target: Object,
   key: string | symbol,
-  descriptor: TypedPropertyDescriptor<T>
+  descriptor: TypedPropertyDescriptor<T>,
 ) {
   let fn = descriptor.value;
 
-  if (typeof fn !== "function") {
+  if (typeof fn !== 'function') {
     throw new TypeError(
-      `@boundMethod decorator can only be applied to methods not: ${typeof fn}`
+      `@boundMethod decorator can only be applied to methods not: ${typeof fn}`,
     );
   }
 
@@ -29,9 +29,9 @@ export function boundMethod<T>(
       // eslint-disable-next-line no-prototype-builtins
       if (
         definingProperty ||
-        this === target["prototype"] ||
+        this === target['prototype'] ||
         this.hasOwnProperty(key) ||
-        typeof fn !== "function"
+        typeof fn !== 'function'
       ) {
         return fn;
       }
@@ -46,13 +46,13 @@ export function boundMethod<T>(
         set(value) {
           fn = value;
           delete this[key];
-        }
+        },
       });
       definingProperty = false;
       return boundFn;
     },
     set(value) {
       fn = value;
-    }
+    },
   };
 }

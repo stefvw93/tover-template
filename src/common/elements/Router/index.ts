@@ -1,4 +1,4 @@
-import { RouteProps } from "react-router";
+import { RouteProps } from 'react-router';
 
 export interface IRouteProps extends RouteProps {
   private?: boolean;
@@ -13,4 +13,4 @@ export interface IRouterProps {
 
 export interface IRouterState {}
 
-export { Router } from "./Router.element";
+export { Router } from './Router.element';

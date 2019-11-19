@@ -1,23 +1,23 @@
-import Color from "color";
-import { normalize, setupPage } from "csstips";
-import { createTypeStyle, cssRaw, cssRule, TypeStyle } from "typestyle";
-import { NestedCSSProperties } from "typestyle/lib/types";
-import { Font } from ".";
+import Color from 'color';
+import { normalize, setupPage } from 'csstips';
+import { createTypeStyle, cssRaw, cssRule, TypeStyle } from 'typestyle';
+import { NestedCSSProperties } from 'typestyle/lib/types';
+import { Font } from '.';
 
 export class StyleController {
   // id for HTML style tag
-  public static tagId = "main-app-style";
+  public static tagId = 'main-app-style';
 
   // typestyle instance
   private instance: TypeStyle;
 
   // HTML elements to reset styling of
   private elementResetStack: string[] = [
-    "button",
-    "input",
-    "optgroup",
-    "select",
-    "textarea",
+    'button',
+    'input',
+    'optgroup',
+    'select',
+    'textarea',
     `html input[type="button"]`,
     `input[type="reset"]`,
     `input[type="submit"]`,
@@ -31,83 +31,83 @@ export class StyleController {
     `input[type="number"]::-webkit-outer-spin-button`,
     `input[type="search"]`,
     `input[type="search"]::-webkit-search-cancel-button`,
-    `input[type="search"]::-webkit-search-decoration`
+    `input[type="search"]::-webkit-search-decoration`,
   ];
 
   // system font backup
   private systemFontStack = [
-    "system-ui",
-    "-apple-system",
-    "BlinkMacSystemFont",
-    "Segoe UI",
-    "Roboto",
-    "Oxygen-Sans",
-    "Ubuntu,Cantarell",
-    "Helvetica Neue",
-    "sans-serif"
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Oxygen-Sans',
+    'Ubuntu,Cantarell',
+    'Helvetica Neue',
+    'sans-serif',
   ];
 
   // fonts
   private googleFonts: Font[] = [
     {
-      family: "Rubik",
-      weights: [300, 400, 500, 700]
-    }
+      family: 'Rubik',
+      weights: [300, 400, 500, 700],
+    },
   ];
   private fonts: Font[] = this.googleFonts;
   private bodyFontStack: string[] = [
     this.fonts[0].family,
-    ...this.systemFontStack
+    ...this.systemFontStack,
   ];
   private headerFontStack: string[] = [
     this.fonts[0].family,
-    ...this.systemFontStack
+    ...this.systemFontStack,
   ];
 
   // colors
   private colors = {
-    text: Color("#131313"),
-    wizardGrey: Color("#535c68"),
-    pureApple: Color("#6ab04c"),
-    carminePink: Color("#eb4d4b")
+    text: Color('#131313'),
+    wizardGrey: Color('#535c68'),
+    pureApple: Color('#6ab04c'),
+    carminePink: Color('#eb4d4b'),
   };
   private borderRadii = [15];
   private spacing: number = 10;
   private horizontalSpacingFactor: number = 1;
   private verticalSpacingFactor: number = 1.2;
 
-  constructor() {
+  public constructor() {
     // always create @import's before any other css
     cssRaw(this.createGoogleFontImport());
 
     // https://typestyle.github.io/#/page
-    setupPage("#root");
+    setupPage('#root');
     normalize();
 
     // add reset style rule to the element stack
-    cssRule(this.elementResetStack.join(","), {
-      background: "none",
-      backgroundColor: "transparent",
-      backgroundImage: "none",
-      border: "none",
-      boxShadow: "none",
-      color: "inherit",
-      font: "inherit",
-      outline: "inherit",
-      padding: 0
+    cssRule(this.elementResetStack.join(','), {
+      background: 'none',
+      backgroundColor: 'transparent',
+      backgroundImage: 'none',
+      border: 'none',
+      boxShadow: 'none',
+      color: 'inherit',
+      font: 'inherit',
+      outline: 'inherit',
+      padding: 0,
     });
 
     // set base html styles
-    cssRule("html", {
-      fontSize: "16px",
-      background: this.colors.wizardGrey.lighten(1.65).toString()
+    cssRule('html', {
+      fontSize: '16px',
+      background: this.colors.wizardGrey.lighten(1.65).toString(),
     });
 
     // set base body styles
-    cssRule("body", {
+    cssRule('body', {
       color: this.colors.text.toString(),
       fontFamily: this.systemFontStack,
-      fontSize: "1rem"
+      fontSize: '1rem',
     });
 
     // use raw css to add font smoothing because typestyle doesn't have typings for this :(
@@ -124,7 +124,7 @@ export class StyleController {
      * append the style element
      * instantiate TypeStyle and pass our style element
      */
-    const $style = document.createElement("style");
+    const $style = document.createElement('style');
     $style.id = StyleController.tagId;
     document.head.appendChild($style);
     this.instance = createTypeStyle($style);
@@ -132,7 +132,7 @@ export class StyleController {
     // Create a style to fill the style tag (used in DOM Mutation observer, check src/index.ts)
     this.rule(`.Guarantee-${StyleController.tagId}`, {
       $debugName: `Guarantee-${StyleController.tagId}`,
-      all: "unset"
+      all: 'unset',
     });
   }
 
@@ -162,9 +162,9 @@ export class StyleController {
   private createGoogleFontImport(): string {
     const fonts = this.googleFonts
       .map(function(font) {
-        return [font.family, font.weights.join(",")].join(":");
+        return [font.family, font.weights.join(',')].join(':');
       })
-      .join("|");
+      .join('|');
 
     const importStatement = `
       @import url('https://fonts.googleapis.com/css?family=${fonts}&display=swap');
@@ -188,7 +188,7 @@ export class StyleController {
     yOffset = 10,
     blur = 40,
     spread = -15,
-    color = "rgba(0,0,0,0.6)"
+    color = 'rgba(0,0,0,0.6)',
   ): string {
     return `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color})`;
   }
@@ -201,12 +201,12 @@ export class StyleController {
     spacing: {
       base: this.spacing,
       horizontal: this.spacing * this.horizontalSpacingFactor,
-      vertical: this.spacing * this.verticalSpacingFactor
+      vertical: this.spacing * this.verticalSpacingFactor,
     },
     animationDurations: {
       feedback: 100,
-      effect: 200
-    }
+      effect: 200,
+    },
   };
 }
 

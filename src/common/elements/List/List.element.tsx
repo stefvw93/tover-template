@@ -1,5 +1,5 @@
-import React from "react";
-import { IListProps, IListState } from ".";
+import React from 'react';
+import { IListProps, IListState } from '.';
 
 /**
  * Performant list UI component
@@ -8,7 +8,7 @@ export class List<ItemType = {}> extends React.Component<
   IListProps<ItemType>,
   IListState
 > {
-  render(): React.ReactNode {
+  public render(): React.ReactNode {
     return this.createList();
   }
 
