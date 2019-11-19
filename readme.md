@@ -1,6 +1,6 @@
 # Typescript React Boilerplate
 
-Featuring:
+Featuring
 
 - [Typescript](https://www.typescriptlang.org)
 - [React](https://reactjs.org)
