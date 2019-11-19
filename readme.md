@@ -5,10 +5,13 @@ Featuring:
 - [Typescript](https://www.typescriptlang.org)
 - [React](https://reactjs.org)
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
-- CSS in JS with [Typestyle](https://typestyle.github.io/)
+- [Typestyle](https://typestyle.github.io/) CSS in JS
+- [ESLint](https://eslint.org/) with [Prettier](https://prettier.io/)
 - [Webpack dev server](https://reacttraining.com/react-router/web/guides/quick-start)
-- Typescript tree-shaking for smaller build size
-- [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
+
+Optimized build
+- Small bundle size because of tree-shaking optimization, compression and webpack optimization.
+- Cache-friendly bundle, using i.e. [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
 
 ## Usage
 
