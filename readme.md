@@ -73,7 +73,7 @@ Code templates can be edited in `_scripts/code-templates`.
 This section roughly explains the out-of-the-box boilerplate code. All existing modules are documented with comments.
 
 > `src/index.tsx`
-> Mounts your react app after styles are created.
+> Bootstrap code
 
 > `src/Main`
 > Root app component
