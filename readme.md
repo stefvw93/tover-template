@@ -15,7 +15,7 @@ Featuring:
 ### Set up your project
 
 ```bash
-$ npm run setup
+% npm run setup
 ```
 
 This will prompt some questions to create an initial project setup.
@@ -23,13 +23,13 @@ This will prompt some questions to create an initial project setup.
 ### Run your project
 
 ```bash
-$ npm run start
+% npm run start
 ```
 
 ### Build your project
 
 ```bash
-$ npm run build
+% npm run build
 ```
 
 ### Configure your project
@@ -41,18 +41,18 @@ Webpack configuration is in `_webpack/webpack.<mode>.js`.
 ### Generate components
 
 ```bash
-$ npm run generate <name> <type>
+% npm run generate <name> <type>
 ```
 
 Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
 
 ```bash
-$ npm run generate Button
+% npm run generate Button
 # creates a Button element component
 ```
 
 ```bash
-$ npm run generate Login screen
+% npm run generate Login screen
 # creates a Login screen component
 ```
 
