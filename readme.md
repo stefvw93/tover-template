@@ -21,7 +21,7 @@ Optimized build
 % npm run setup
 ```
 
-This will prompt some questions to create an initial project setup.
+This will prompt some questions to create an initial project setup, and installs dependencies.
 
 ### Run
 
