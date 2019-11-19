@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const colors = require('colors');
 const rimraf = require('rimraf');
 
-// build command joined by 'then'
+// create build command
 const compileTypeScript = 'tsc';
 const webpack = `webpack --config ${paths.webpack}/webpack.production --display-error-details`;
 const buildCommand = [compileTypeScript, webpack].join(' && ');

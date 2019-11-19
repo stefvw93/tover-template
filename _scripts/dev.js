@@ -1,14 +1,12 @@
 const { spawn, spawnSync } = require('child_process');
-const { paths, devServer } = require('../project-config');
+const { paths } = require('../project-config');
 const colors = require('colors/safe');
-
-// show api url
-console.log(`${colors.green.bold('Starting development mode...')}`);
-
 const childProcessOptions = {
   stdio: 'inherit',
   shell: /^win/.test(process.platform),
 };
+
+console.log(`${colors.green.bold('Starting development mode...')}`);
 
 spawnSync('tsc');
 spawn('tsc', ['-w', '--incremental'], childProcessOptions);

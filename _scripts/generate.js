@@ -1,11 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const package = require('../package.json');
 const { paths } = require('../project-config');
 const replaceName = 'COMPONENTNAME';
 const replaceType = 'COMPONENTTYPE';
 const replaceStyle = 'COMPONENTSTYLE';
 const allowedTypes = ['element', 'screen'];
+const bashArguments = process.argv.slice(2);
+const componentName = bashArguments[0] || 'newComponent';
+const type = bashArguments[1] || 'element';
+const indexPath = path.resolve(__dirname, 'code-templates/index.txt');
+const componentPath = path.resolve(__dirname, 'code-templates/component.txt');
+const stylesPath = path.resolve(__dirname, 'code-templates/styles.txt');
 
 function getOutDir(type, componentName) {
   const outDir = path.resolve(
@@ -63,13 +68,6 @@ function generateModule(templateFile, name, type, subtype) {
     }
   });
 }
-
-const bashArguments = process.argv.slice(2);
-const componentName = bashArguments[0] || 'newComponent';
-const type = bashArguments[1] || 'element';
-const indexPath = path.resolve(__dirname, 'code-templates/index.txt');
-const componentPath = path.resolve(__dirname, 'code-templates/component.txt');
-const stylesPath = path.resolve(__dirname, 'code-templates/styles.txt');
 
 if (fs.existsSync(getOutDir(type, componentName))) {
   console.log(`"${componentName}" already exists!`);
