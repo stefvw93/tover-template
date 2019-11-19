@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const package = require('../package.json');
+const { paths } = require('../project-config');
 const replaceName = 'COMPONENTNAME';
 const replaceType = 'COMPONENTTYPE';
 const replaceStyle = 'COMPONENTSTYLE';
@@ -39,7 +40,7 @@ function generateModule(templateFile, name, type, subtype) {
     if (subtype) writeFileName += `.${subtype}`;
     writeFileName += type === subtype ? '.tsx' : '.ts';
 
-    console.log('Writing file to ' + writeFileName.split(package.name)[1]);
+    console.log('Writing file to ' + writeFileName.split(paths.root)[1]);
 
     if (buffer) {
       if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
