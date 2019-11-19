@@ -15,7 +15,7 @@ Optimized build
 
 ## Usage
 
-### Set up your project
+### Set up
 
 ```bash
 % npm run setup
@@ -23,43 +23,50 @@ Optimized build
 
 This will prompt some questions to create an initial project setup.
 
-### Run your project
+### Run
 
 ```bash
-% npm run start
+% npm start
 ```
 
-### Build your project
+### Build
 
 ```bash
 % npm run build
 ```
 
-### Configure your project
+### Settings
 
 You can edit `project-config.js` to change basic project configuration settings like dev server port, display name or paths.
 
 Webpack configuration is in `_webpack/webpack.<mode>.js`.
 
-### Generate components
+### Generate code
+
+Where `name` is your component name, and `type` is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
 
 ```bash
 % npm run generate <name> <type>
 ```
 
-Where name is your component name, and type is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
+This script will create a React Component, style map and `index.ts` file with types and exports.
 
 ```bash
 % npm run generate Button
-# creates a Button element component
+# creates an element module called "Button"
+```
+
+```bash
+% npm run generate Image element
+# creates an element module called "Image"
 ```
 
 ```bash
 % npm run generate Login screen
-# creates a Login screen component
+# creates a screen module called "Login"
 ```
 
-Code templates and output can be edited in `_scripts/code-templates` and `_scripts/generate.js`.
+Code templates can be edited in `_scripts/code-templates`.
 
 ### Existing source code
 
@@ -74,11 +81,11 @@ This section roughly explains the out-of-the-box boilerplate code. All existing 
 > `src/style`
 > Style controller and other style related code
 
-> `src/utilities`
-> Utility code
-
 > `src/common/elements`, `src/common/screens`
 > Common/reusable components like (ui) elements and screens.
+
+> `src/utilities`
+> Utility or all code that does not fall into other categories code
 
 #### Code file structure
 
@@ -92,17 +99,17 @@ This is a directory. The directory's leading concern is the `MyComponent` class,
 
 ##### `MyComponent/MyComponent.element.tsx`
 
-Exposes class `MyComponent`
+Exports class `MyComponent`
 
 ##### `MyComponent/myComponent.style.ts`
 
-Exposes styles related to `MyComponent`. Note that this module's file name is not capitalized, as it does not expose a class.
+Exports styles related to `MyComponent`. Note that this module's file name is not capitalized, as it does not expose a class.
 
 ##### `MyComponent/index.ts`
 
-Use to export modules and types related to `MyComponent`. Also, this is where you make last alterations: For example, wrap a react component in `withRouter`, rename an export or expose typings.
+Use to export modules and types related to `MyComponent`. Also, this is where you make last alterations: For example, apply decorators, rename exports or export extra types.
 
-Classes should be named exports - never default exports, so the class name is consistent across the project, e.g:
+The project source uses OOP language style naming - like Swift or Kotlin. Classes should be named exports - never default exports, so the class name is consistent across the project, like so:
 
 ```typescript
 // MyComponent/MyComponent.element.ts
