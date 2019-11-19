@@ -6,8 +6,8 @@ Featuring:
 - [React](https://reactjs.org)
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Typestyle](https://typestyle.github.io/) CSS in JS
+- [Webpack](https://webpack.js.org/)
 - [ESLint](https://eslint.org/) with [Prettier](https://prettier.io/)
-- [Webpack dev server](https://reacttraining.com/react-router/web/guides/quick-start)
 
 Optimized build
 - Small bundle size because of tree-shaking optimization, compression and webpack optimization.
