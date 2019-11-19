@@ -85,7 +85,7 @@ This section roughly explains the out-of-the-box boilerplate code. All existing 
 > Common/reusable components like (ui) elements and screens.
 
 > `src/utilities`
-> Utility or all code that does not fall into other categories code
+> Utility code or code that does not fall into other categories.
 
 #### Code file structure
 
