@@ -21,7 +21,7 @@ Optimized build
 % npm run setup
 ```
 
-This will prompt some questions to create an initial project setup.
+This will prompt some questions to create an initial project setup, and installs dependencies.
 
 ### Run
 
@@ -73,7 +73,7 @@ Code templates can be edited in `_scripts/code-templates`.
 This section roughly explains the out-of-the-box boilerplate code. All existing modules are documented with comments.
 
 > `src/index.tsx`
-> Mounts your react app after styles are created.
+> Bootstrap code
 
 > `src/Main`
 > Root app component
@@ -85,7 +85,7 @@ This section roughly explains the out-of-the-box boilerplate code. All existing 
 > Common/reusable components like (ui) elements and screens.
 
 > `src/utilities`
-> Utility or all code that does not fall into other categories code
+> Utility code or code that does not fall into other categories.
 
 #### Code file structure
 
