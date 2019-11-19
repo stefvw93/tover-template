@@ -1,17 +1,7 @@
-import { disableBodyScroll } from 'body-scroll-lock';
 import React from 'react';
 import { render } from 'react-dom';
-import { hot } from 'react-hot-loader/root';
 import { StyleController } from 'style/styleController';
 import { Main } from './Main';
-
-let App: typeof Main;
-
-if (process.env.NODE_ENV === 'development') {
-  App = hot(Main);
-} else {
-  App = Main;
-}
 
 const $root = document.getElementById('root');
 const $style = document.getElementById(
@@ -20,7 +10,7 @@ const $style = document.getElementById(
 
 function createApp() {
   //   disableBodyScroll($root);
-  render(<App />, $root);
+  render(<Main />, $root);
 }
 
 // check if styles were created before this piece of code has been reached (somehow, it has happened)
@@ -51,9 +41,4 @@ if ($style.innerHTML.length > 0) {
     childList: true,
     characterData: true,
   });
-}
-
-// accept hot module replacement
-if (process.env.NODE_ENV === 'development' && module['hot']) {
-  module['hot'].accept();
 }

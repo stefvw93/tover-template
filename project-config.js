@@ -7,7 +7,6 @@ module.exports = {
   },
 
   devServer: {
-    hot: false,
     ip: 'localhost',
     open: 'Google Chrome',
     port: 20393,
