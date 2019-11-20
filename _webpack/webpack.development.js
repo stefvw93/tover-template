@@ -35,7 +35,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    alias: paths.aliases,
     modules: [paths.compiled, 'node_modules'],
   },
 };
