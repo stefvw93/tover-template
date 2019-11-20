@@ -8,13 +8,13 @@
 export function boundMethod<T>(
   target: Object,
   key: string | symbol,
-  descriptor: TypedPropertyDescriptor<T>,
+  descriptor: TypedPropertyDescriptor<T>
 ) {
   let fn = descriptor.value;
 
   if (typeof fn !== 'function') {
     throw new TypeError(
-      `@boundMethod decorator can only be applied to methods not: ${typeof fn}`,
+      `@boundMethod decorator can only be applied to methods not: ${typeof fn}`
     );
   }
 

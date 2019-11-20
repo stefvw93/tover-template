@@ -25,7 +25,7 @@ export class Router extends React.Component<IRouterProps, IRouterState> {
    */
   private createRouteTemplate(
     item: IRouteProps,
-    index: number,
+    index: number
   ): React.ReactNode {
     if (item.private) return <PrivateRoute key={index} {...item} />;
     return <Route key={index} {...item} />;

@@ -1,10 +1,12 @@
 {
   "editor.formatOnSave": false,
-  "prettier.disableLanguages": [
-    "typescript",
-    "typescriptreact"
-  ],
-  "eslint.autoFixOnSave": true,
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "prettier.disableLanguages": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.alwaysShowStatus": true,
   "eslint.validate": [
     "javascript",
@@ -17,11 +19,5 @@
       "language": "typescriptreact",
       "autoFix": true
     }
-  ],
-  "[typescript]": {
-    "editor.formatOnSave": false
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": false
-  }
+  ]
 }

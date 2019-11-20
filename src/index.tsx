@@ -5,7 +5,7 @@ import { Main } from './Main';
 
 const $root = document.getElementById('root');
 const $style = document.getElementById(
-  StyleController.tagId,
+  StyleController.tagId
 ) as HTMLStyleElement;
 
 function createApp() {
@@ -25,7 +25,7 @@ if ($style.innerHTML.length > 0) {
    */
   new MutationObserver(function(
     mutations: MutationRecord[],
-    observer: MutationObserver,
+    observer: MutationObserver
   ): void {
     for (let mutation of mutations) {
       // if child list has changed -- style rules have been added to the style element

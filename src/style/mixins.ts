@@ -2,7 +2,7 @@ import { styleController } from './styleController';
 
 function createRow(
   spacingFactor: number = 1,
-  usePadding: boolean = false,
+  usePadding: boolean = false
 ): string {
   const _verticalSpacing =
     styleController.guide.spacing.vertical * spacingFactor;

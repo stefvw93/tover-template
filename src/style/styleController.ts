@@ -188,7 +188,7 @@ export class StyleController {
     yOffset = 10,
     blur = 40,
     spread = -15,
-    color = 'rgba(0,0,0,0.6)',
+    color = 'rgba(0,0,0,0.6)'
   ): string {
     return `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color})`;
   }
