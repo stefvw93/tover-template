@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["react", "@typescript-eslint", "prettier"],
+  plugins: ["react", "prettier", "@typescript-eslint"],
   rules: {
     "prettier/prettier": "warn",
     "@typescript-eslint/explicit-member-accessibility": "error",
