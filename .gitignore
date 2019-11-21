@@ -1,4 +1,4 @@
 .cache
-_dist/
+.dist
 .DS_STORE
-node_modules/
+node_modules

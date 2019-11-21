@@ -1,21 +1,30 @@
 # Typescript React Boilerplate
 
-Featuring
+Opinionated but flexible project boilerplate, featuring:
 
 - [Typescript](https://www.typescriptlang.org)
 - [React](https://reactjs.org)
-- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
-- [Typestyle](https://typestyle.github.io/) CSS in JS
 - [Webpack](https://webpack.js.org/)
-- [ESLint](https://eslint.org/) with [Prettier](https://prettier.io/)
 
-Optimized build
+Delivers an optimized build because of:
 - Small bundle size because of tree-shaking optimization, compression and webpack optimization.
 - Cache-friendly bundle, using i.e. [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
 
+With some handy pre-implemented libraries, like:
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [Typestyle](https://typestyle.github.io/) - CSS in JS
+
+Boosts your productivity with:
+- Development configuration
+- Build configuration
+- [Code generation](#generate-code)
+- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/)
+
+...and more!
+
 ## Usage
 
-### Set up
+#### Set up
 
 ```bash
 % npm run setup
@@ -23,33 +32,45 @@ Optimized build
 
 This will prompt some questions to create an initial project setup, and installs dependencies.
 
-### Run
+#### Start
 
 ```bash
 % npm start
+# runs typescript compiler in watch mode and starts a webpack dev server
 ```
 
-### Build
+#### Build
 
 ```bash
 % npm run build
+# runs the linter on the source code, compiles typescript and bundles your build using webpack
 ```
 
-### Settings
+#### Clean
 
-You can edit `project-config.js` to change basic project configuration settings like dev server port, display name or paths.
+```bash
+% npm run clean
+# cleans out node_modules, cache and distribution directories
+```
 
-Webpack configuration is in `_webpack/webpack.<mode>.js`.
+#### Lint
 
-### Generate code
+```bash
+% npm run lint
+# runs the linter on *all* code in the project and attempts to fix code style where  possible
+```
 
-Where `name` is your component name, and `type` is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
+#### Generate code
+
+Creating new components can be a tedious task. Therefor a code generation script is included in this boilerplate. Just run the following command:
 
 ```bash
 % npm run generate <name> <type>
 ```
 
-This script will create a React Component, style map and `index.ts` file with types and exports.
+Where `name` is your component name, and `type` is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
+
+This script will create a `component`, `styles` and `index` file with related types and exports.
 
 ```bash
 % npm run generate Button
@@ -68,7 +89,7 @@ This script will create a React Component, style map and `index.ts` file with ty
 
 Code templates can be edited in `_scripts/code-templates`.
 
-### Existing source code
+## Existing source code
 
 This section roughly explains the out-of-the-box boilerplate code. All existing modules are documented with comments.
 
@@ -129,3 +150,17 @@ export { MyComponent } from "./MyComponent.element";
 
 import { MyComponent } from "common/elements/MyComponent"`
 ```
+
+## Settings
+
+You can edit `project-config.js` to customize settings like app properties, entry point, dev server and paths.
+
+Webpack configurations are found in `_webpack` (by default).
+
+## Other
+
+Using an ESLint plugin for your IDE is recommended.
+
+Directories prefixed with a *"_"* can generally remain untouched, unless you know what you are doing and want to change things about the project setup. Directories prefixed with a *"."* should not be touched. These contain compiled or otherwise processed code.* 
+
+<sub>*The only exception may be the `.vscode` directory, which contains workspace settings for VSCode.</sub>

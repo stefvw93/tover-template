@@ -9,7 +9,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "node _scripts/clean",
-    "build:test": "ANALYZE_BUILD=true node _scripts/build",
     "build": "node _scripts/build",
     "start": "node _scripts/dev",
     "generate": "node _scripts/generate",

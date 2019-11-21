@@ -2,7 +2,7 @@ const path = require('path');
 const package = require('./package.json');
 const dirnames = {
   compiled: '.cache',
-  distribution: '_dist',
+  distribution: '.dist',
   webpack: '_webpack',
   source: 'src',
 };
