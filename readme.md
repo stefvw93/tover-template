@@ -58,7 +58,7 @@ This will prompt some questions to create an initial project setup, and installs
 
 ```bash
 % npm run lint
-# runs the linter on *all* code in the project and attempts to fix code style where  possible
+# runs the linter on *all* code in the project and attempts to fix code style where possible
 ```
 
 #### Generate code
