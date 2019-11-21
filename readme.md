@@ -18,7 +18,8 @@ Boosts your productivity with:
 - Extensive development environment
 - Auxiliary build tools
 - [Code generation](#generate-code)
-- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 ...and more!
 
@@ -43,7 +44,7 @@ This will prompt some questions to create an initial project setup, and installs
 
 ```bash
 % npm run build
-# runs the linter on the source code, compiles typescript and bundles your build using webpack
+# runs the linter on your source code, compiles typescript and bundles your build using webpack
 ```
 
 #### Clean
