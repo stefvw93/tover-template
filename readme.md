@@ -29,9 +29,8 @@ Boosts your productivity with:
 
 ```bash
 % npm run setup
+# This will prompt some questions to create an initial project setup, and installs dependencies.
 ```
-
-This will prompt some questions to create an initial project setup, and installs dependencies.
 
 #### Start
 
