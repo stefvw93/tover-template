@@ -15,8 +15,8 @@ With some handy pre-implemented libraries, like:
 - [Typestyle](https://typestyle.github.io/) - CSS in JS
 
 Boosts your productivity with:
-- Development configuration
-- Build configuration
+- Extensive development environment
+- Auxiliary build tools
 - [Code generation](#generate-code)
 - [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/)
 
