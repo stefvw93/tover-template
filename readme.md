@@ -13,6 +13,7 @@ Delivers an optimized build because of:
 With some handy pre-implemented libraries, like:
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Typestyle](https://typestyle.github.io/) - CSS in JS
+- [Mobx](https://mobx.js.org/README.html) - state management
 
 Boosts your productivity with:
 - Extensive development environment
