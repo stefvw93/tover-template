@@ -109,9 +109,9 @@ This section roughly explains the out-of-the-box boilerplate code. All existing 
 > `src/utilities`
 > Utility code or code that does not fall into other categories.
 
-#### Code file structure
+#### Code file structure and code/naming style
 
-This section just explains the current file structure. Obviously you can ignore this and do things your own way, but note you might want to edit [code templates](#generate-components).
+This section explains the current file structure and code/naming style. The source code has OOP-language style naming and consistency. Obviously you can ignore this and do things your own way, but note you might want to edit [code templates](#generate-components). A general rule of thumb is that file/module names should match their exported code's leading concern.
 
 File structure concerning a leading class called `MyComponent` is used as an example here.
 
