@@ -131,7 +131,7 @@ Exports styles related to `MyComponent`. Note that this module's file name is no
 
 Use to export modules and types related to `MyComponent`. Also, this is where you make last alterations: For example, apply decorators, rename exports or export extra types.
 
-The project source uses OOP language style naming - like Swift or Kotlin. Classes should be named exports - never default exports, so the class name is consistent across the project, like so:
+Classes should be named exports - never default exports, so the class name is consistent across the project, like so:
 
 ```typescript
 // MyComponent/MyComponent.element.ts
@@ -158,10 +158,12 @@ You can edit `project-config.js` to customize settings like app properties, entr
 
 Webpack configurations are found in `_webpack` (by default).
 
+Various (node) package scripts can be found in `_scripts`, if you wish to change these.
+
 ## Other
 
 Using an ESLint plugin for your IDE is recommended.
 
-Directories prefixed with a *"_"* can generally remain untouched, unless you know what you are doing and want to change things about the project setup. Directories prefixed with a *"."* should not be touched. These contain compiled or otherwise processed code.* 
+Directories prefixed with a *"_"* can generally remain untouched, unless you know what you are doing and want to change things about the project setup. Directories prefixed with a *"."* should not be touched.* These contain compiled or otherwise processed code. 
 
 <sub>*The only exception may be the `.vscode` directory, which contains workspace settings for VSCode.</sub>
