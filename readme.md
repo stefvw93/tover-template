@@ -7,7 +7,7 @@ Opinionated but flexible project boilerplate, featuring:
 - [Webpack](https://webpack.js.org/)
 
 Delivers an optimized build because of:
-- Small bundle size because of tree-shaking optimization, compression and webpack optimization.
+- Small bundle size through tree-shaking optimization, compression and webpack optimization.
 - Cache-friendly bundle, using i.e. [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
 
 With some handy pre-implemented libraries, like:
