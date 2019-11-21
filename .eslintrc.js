@@ -21,5 +21,12 @@ module.exports = {
     react: {
       version: "16.10"
     }
-  }
+  },overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        "@typescript-eslint/explicit-member-accessibility": "off",
+      },
+    }
+  ]
 };

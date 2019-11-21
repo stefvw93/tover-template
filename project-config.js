@@ -1,5 +1,11 @@
 const path = require('path');
 const package = require('./package.json');
+const dirnames = {
+  compiled: '.cache',
+  distribution: '_dist',
+  webpack: '_webpack',
+  source: 'src',
+};
 
 module.exports = {
   app: {
@@ -15,11 +21,12 @@ module.exports = {
   entry: './index.js',
 
   paths: {
+    dirnames,
     root: __dirname,
-    compiled: path.join(__dirname, '.cache'),
-    distribution: path.join(__dirname, '_dist'),
-    source: path.join(__dirname, 'src'),
-    HTMLTemplate: path.join(__dirname, 'src', 'index.template.pug'),
-    webpack: path.join(__dirname, '_webpack'),
+    compiled: path.join(__dirname, dirnames.compiled),
+    distribution: path.join(__dirname, dirnames.distribution),
+    source: path.join(__dirname, dirnames.source),
+    HTMLTemplate: path.join(__dirname, dirnames.source, 'index.template.pug'),
+    webpack: path.join(__dirname, dirnames.webpack),
   },
 };

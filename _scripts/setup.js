@@ -48,7 +48,7 @@ function setup() {
       child.on('exit', (code, signal) => {
         if (!code) {
           console.log(
-            'Project ready! Run `npm start` to start working on your awesome new project!',
+            'Project ready! Run `npm start` to start working on your awesome new project!'
           );
         }
         process.exit(code);

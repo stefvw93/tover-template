@@ -19,7 +19,7 @@ function getOutDir(type, componentName) {
     'src',
     'common',
     type + 's',
-    componentName,
+    componentName
   );
 
   return outDir;
@@ -57,13 +57,13 @@ function generateModule(templateFile, name, type, subtype) {
           .replace(new RegExp(replaceType, 'g'), type)
           .replace(
             new RegExp(replaceStyle, 'g'),
-            name.charAt(0).toLowerCase() + name.slice(1),
+            name.charAt(0).toLowerCase() + name.slice(1)
           ),
 
         function(error) {
           if (error) console.log('Uh-oh', error);
           console.log('Created ' + (subtype || 'index'));
-        },
+        }
       );
     }
   });

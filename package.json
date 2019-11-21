@@ -8,13 +8,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf _dist node_modules",
+    "clean": "node _scripts/clean",
     "build:test": "ANALYZE_BUILD=true node _scripts/build",
     "build": "node _scripts/build",
     "start": "node _scripts/dev",
     "generate": "node _scripts/generate",
     "setup": "node _scripts/setup",
-    "format": "eslint --fix \"{,!(node_modules)/**/}*.{ts,tsx}\""
+    "lint": "node _scripts/lint"
   },
   "author": "Stef van Wijchen",
   "license": "ISC",

@@ -13,5 +13,5 @@ spawn('tsc', ['-w', '--incremental'], childProcessOptions);
 spawn(
   'webpack-dev-server',
   ['--config', `${paths.webpack}/webpack.development`],
-  childProcessOptions,
+  childProcessOptions
 );
