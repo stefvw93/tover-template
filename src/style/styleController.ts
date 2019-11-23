@@ -175,13 +175,6 @@ export class StyleController {
 
   /**
    * Creates a css box-shadow value
-   *
-   * @param xOffset shadow offset on x axis
-   * @param yOffset shadow offset on y axis
-   * @param blur blur radius
-   * @param spread spread size
-   * @param color color of the shadow
-   * @returns css box-shadow property value
    */
   public createBoxShadow(
     xOffset = 0,

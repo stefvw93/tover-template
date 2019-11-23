@@ -19,9 +19,6 @@ export class Router extends React.Component<IRouterProps, IRouterState> {
 
   /**
    * Creates a Route node
-   * @param item route properties
-   * @param index
-   * @returns {Route} route node
    */
   private createRouteTemplate(
     item: IRouteProps,

@@ -14,13 +14,13 @@ class PrivateRouteClass extends React.Component<
   IPrivateRouteState
 > {
   public render(): React.ReactNode {
-    const _authenticated = true;
+    const authenticated = true;
 
     return (
       <Route
         {...this.props}
-        component={_authenticated ? this.props.component : null}
-        render={!_authenticated ? this.createRedirect : null}
+        component={authenticated ? this.props.component : null}
+        render={!authenticated ? this.createRedirect : null}
       />
     );
   }

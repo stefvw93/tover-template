@@ -1,9 +1,5 @@
 /**
  * Binds the method to its parent's scope
- *
- * @param target
- * @param key
- * @param descriptor
  */
 export function boundMethod<T>(
   target: Object,
