@@ -52,7 +52,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: paths.HTMLTemplate,
+      template: paths.htmlTemplate,
     }),
   ],
   resolve: {

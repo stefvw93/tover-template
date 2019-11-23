@@ -27,7 +27,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: paths.HTMLTemplate,
+      template: paths.htmlTemplate,
     }),
     new webpack.DefinePlugin({
       'process.env.API_URL': JSON.stringify(process.env.API_URL),
