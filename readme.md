@@ -7,15 +7,18 @@ Opinionated but flexible project boilerplate, featuring:
 - [Webpack](https://webpack.js.org/)
 
 Delivers an optimized build because of:
+
 - Small bundle size through tree-shaking optimization, compression and webpack optimization.
 - Cache-friendly bundle, using i.e. [emit-changed-only-webpack-plugin](https://www.npmjs.com/package/emit-changed-only-webpack-plugin)
 
 With some handy pre-implemented libraries, like:
+
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Typestyle](https://typestyle.github.io/) - CSS in JS
 - [Mobx](https://mobx.js.org/README.html) - state management
 
 Boosts your productivity with:
+
 - Extensive development environment
 - Auxiliary build tools
 - [Code generation](#generate-code)
@@ -88,7 +91,7 @@ This script will create a `component`, `styles` and `index` file with related ty
 # creates a screen module called "Login"
 ```
 
-Code templates can be edited in `_scripts/code-templates`.
+Code templates can be edited in `_environment/code-templates`.
 
 ## Existing source code
 
@@ -143,7 +146,7 @@ export class MyComponent {
 ```typescript
 // MyComponent/index.ts
 
-export { MyComponent } from "./MyComponent.element";
+export { MyComponent } from './MyComponent.element';
 ```
 
 ```typescript
@@ -158,12 +161,12 @@ You can edit `project-config.js` to customize settings like app properties, entr
 
 Webpack configurations are found in `_webpack` (by default).
 
-Various (node) package scripts can be found in `_scripts`, if you wish to change these.
+Various (node) package scripts can be found in `_environment`, if you wish to change these.
 
 ## Other
 
 Using an ESLint plugin for your IDE is recommended.
 
-Directories prefixed with a *"_"* can generally remain untouched, unless you know what you are doing and want to change things about the project setup. Directories prefixed with a *"."* should not be touched.* These contain compiled or otherwise processed code. 
+Directories prefixed with a _"\_"_ can generally remain untouched, unless you know what you are doing and want to change things about the project setup. Directories prefixed with a _"."_ should not be touched.\* These contain compiled or otherwise processed code.
 
-<sub>*The only exception may be the `.vscode` directory, which contains workspace settings for VSCode.</sub>
+<sub>\*The only exception may be the `.vscode` directory, which contains workspace settings for VSCode.</sub>

@@ -8,12 +8,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "node _scripts/clean",
-    "build": "node _scripts/build",
-    "start": "node _scripts/dev",
-    "generate": "node _scripts/generate",
-    "setup": "node _scripts/setup",
-    "lint": "node _scripts/lint"
+    "clean": "node _environment/clean",
+    "build": "node _environment/build",
+    "start": "node _environment/dev",
+    "generate": "node _environment/generate",
+    "setup": "node _environment/setup",
+    "lint": "node _environment/lint"
   },
   "author": "Stef van Wijchen",
   "license": "ISC",
