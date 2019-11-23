@@ -1,5 +1,5 @@
 const { entry, paths, app } = require('../project-config');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotENVWebpackPlugin = require('dotenv-webpack');
 const EmitChangedOnlyPlugin = require('emit-changed-only-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -50,7 +50,7 @@ module.exports = {
     new EmitChangedOnlyPlugin({
       exclude: /\.html/i,
     }),
-    new HTMLWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: app.title,
       template: paths.htmlTemplate,
     }),

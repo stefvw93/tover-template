@@ -1,6 +1,6 @@
 const { paths, entry, devServer, app } = require('../project-config');
 const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -25,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HTMLWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: app.title,
       template: paths.htmlTemplate,
     }),
