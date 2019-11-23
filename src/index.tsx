@@ -39,6 +39,6 @@ if ($style.innerHTML.length > 0) {
   }).observe($style, {
     attributes: true,
     childList: true,
-    characterData: true,
+    characterData: true
   });
 }
