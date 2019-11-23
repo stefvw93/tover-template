@@ -26,7 +26,7 @@ module.exports = {
     compiled: path.join(__dirname, dirnames.compiled),
     distribution: path.join(__dirname, dirnames.distribution),
     source: path.join(__dirname, dirnames.source),
-    HTMLTemplate: path.join(__dirname, dirnames.source, 'index.template.pug'),
+    HTMLTemplate: path.join(__dirname, dirnames.source, 'index.html'),
     webpack: path.join(__dirname, dirnames.webpack),
   },
 };

@@ -4,8 +4,6 @@ const DotENVWebpackPlugin = require('dotenv-webpack');
 const EmitChangedOnlyPlugin = require('emit-changed-only-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'production',
@@ -47,7 +45,6 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   plugins: [
-    process.env.ANALYZE_BUILD ? new BundleAnalyzerPlugin() : function() {},
     new CompressionPlugin(),
     new DotENVWebpackPlugin(),
     new EmitChangedOnlyPlugin({
@@ -55,8 +52,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.HTMLTemplate}`,
-      inject: false,
+      template: paths.HTMLTemplate,
     }),
   ],
   resolve: {

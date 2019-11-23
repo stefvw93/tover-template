@@ -27,8 +27,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       title: app.title,
-      template: `!!pug-loader!${paths.HTMLTemplate}`,
-      inject: false,
+      template: paths.HTMLTemplate,
     }),
     new webpack.DefinePlugin({
       'process.env.API_URL': JSON.stringify(process.env.API_URL),
