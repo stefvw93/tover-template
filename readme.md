@@ -165,6 +165,6 @@ Various (node) package scripts can be found in `_environment`, if you wish to ch
 
 ## Other
 
-Using an ESLint plugin for your IDE is recommended.
+Using ESLint and Prettier plugins for your IDE is recommended.
 
 Directories prefixed with a _"\_"_ can generally remain untouched, unless you know what you are doing and want to change things about the project setup. Directories prefixed with a _"."_ should not be touched. These contain compiled or otherwise processed code.
