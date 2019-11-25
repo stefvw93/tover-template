@@ -1,11 +1,11 @@
-const { writeLine, rewriteLine, ActivityIndicator, spawn } = require('./utils');
-const { paths } = require('../project-config');
+const { rewriteLine, ActivityIndicator, spawn } = require('./utils');
 const colors = require('colors');
 const childProcessOptions = {
   stdio: 'inherit',
   shell: /^win/.test(process.platform),
 };
-
+const eslint = 'eslint';
+const params = ['--fix', 'src/**/*.{js,ts,tsx}'];
 const activityIndicator = new ActivityIndicator({
   frames: '⠁⠂⠄⡀⢀⠠⠐⠈'.split(''),
   prefixLoader: true,
@@ -16,16 +16,9 @@ const lint = async () => {
   try {
     // run eslint
     activityIndicator.message = colors.italic('Running linter...');
-    await spawn(
-      'eslint',
-      [
-        '--fix',
-        `{,!(node_modules|${paths.dirnames.compiled}|${paths.dirnames.distribution})/**/}*.{js,jsx,ts,tsx}`,
-      ],
-      childProcessOptions
-    );
+    await spawn(eslint, params, childProcessOptions);
     activityIndicator.stop();
-    rewriteLine(colors.green('✓ Linter passed. Your code is beautiful!\n\n'));
+    // rewriteLine(colors.green('✓ Linter passed. Your code is beautiful!\n\n'));
   } catch (e) {
     activityIndicator.stop();
     rewriteLine(

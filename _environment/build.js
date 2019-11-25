@@ -1,5 +1,7 @@
 const { paths } = require('../project-config');
 const { writeLine, rewriteLine, ActivityIndicator, spawn } = require('./utils');
+const eslint = 'eslint';
+const params = ['--fix', 'src/**/*.{js,ts,tsx}'];
 const colors = require('colors');
 const childProcessOptions = {
   stdio: 'inherit',
@@ -16,14 +18,7 @@ const build = async () => {
   try {
     // run eslint
     activityIndicator.message = colors.italic('Running linter...');
-    await spawn(
-      'eslint',
-      [
-        '--fix',
-        `{,!(node_modules|${paths.dirnames.compiled}|${paths.dirnames.distribution})/**/}*.{ts,tsx}`,
-      ],
-      childProcessOptions
-    );
+    await spawn(eslint, params, childProcessOptions);
     activityIndicator.stop();
     rewriteLine(colors.green('✓ Linter passed. Your code is beautiful!\n\n'));
 
@@ -49,13 +44,14 @@ const build = async () => {
     activityIndicator.stop();
     rewriteLine(colors.green('✓ Done!\n\n'));
   } catch (e) {
+    rewriteLine('');
     activityIndicator.stop();
-    rewriteLine(
+    writeLine(
       colors.red.bold('Something went wrong. Please check process output.\n\n')
     );
   }
 };
 
 build()
-  .then(() => process.exit(0))
-  .catch(() => process.exit(0));
+  .then(_ => process.exit(0))
+  .catch(_ => process.exit(0));
