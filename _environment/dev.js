@@ -8,7 +8,7 @@ const childProcessOptions = {
 
 console.log(`${colors.green.bold('Starting development mode...')}`);
 
-spawnSync('tsc');
+spawnSync('tsc', ['--incremental']);
 spawn('tsc', ['-w', '--incremental'], childProcessOptions);
 spawn(
   'webpack-dev-server',
