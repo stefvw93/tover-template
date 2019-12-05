@@ -5,11 +5,14 @@ import { NestedCSSProperties } from 'typestyle/lib/types';
 import { Font } from '.';
 
 export class StyleController {
+  // make this a singleton
+  public static readonly instance = new StyleController();
+
   // id for HTML style tag
-  public static tagId = 'main-app-style';
+  public readonly tagId = 'main-app-style';
 
   // typestyle instance
-  private instance: TypeStyle;
+  private typeStyle: TypeStyle;
 
   // HTML elements to reset styling of
   private elementResetStack: string[] = [
@@ -76,7 +79,7 @@ export class StyleController {
   private horizontalSpacingFactor: number = 1;
   private verticalSpacingFactor: number = 1.2;
 
-  constructor() {
+  private constructor() {
     // always create @import's before any other css
     cssRaw(this.createGoogleFontImport());
 
@@ -125,13 +128,13 @@ export class StyleController {
      * instantiate TypeStyle and pass our style element
      */
     const $style = document.createElement('style');
-    $style.id = StyleController.tagId;
+    $style.id = this.tagId;
     document.head.appendChild($style);
-    this.instance = createTypeStyle($style);
+    this.typeStyle = createTypeStyle($style);
 
     // Create a style to fill the style tag (used in DOM Mutation observer, check src/index.ts)
-    this.rule(`.Guarantee-${StyleController.tagId}`, {
-      $debugName: `Guarantee-${StyleController.tagId}`,
+    this.rule(`.Guarantee-${this.tagId}`, {
+      $debugName: `Guarantee-${this.tagId}`,
       all: 'unset',
     });
   }
@@ -148,7 +151,7 @@ export class StyleController {
     ) as NestedCSSProperties[];
     const classNames = from.filter(_ => typeof _ === 'string') as string[];
 
-    classNames.push(this.instance.style(...nestedCssProperties));
+    classNames.push(this.typeStyle.style(...nestedCssProperties));
 
     return classNames.join(' ');
   }
@@ -160,7 +163,7 @@ export class StyleController {
    * @param objects nested css properties
    */
   public rule(selector: string, ...objects: NestedCSSProperties[]): void {
-    return this.instance.cssRule(selector, ...objects);
+    return this.typeStyle.cssRule(selector, ...objects);
   }
 
   /**
@@ -194,7 +197,7 @@ export class StyleController {
   }
 
   // expose a style guide
-  public guide = {
+  public readonly guide = {
     colors: this.colors,
     borderRadii: this.borderRadii,
     fonts: this.fonts,
@@ -210,4 +213,4 @@ export class StyleController {
   };
 }
 
-export const styleController = new StyleController();
+export const styleController = StyleController.instance;

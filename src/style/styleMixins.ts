@@ -2,7 +2,8 @@ import { boundMethod } from 'utilities';
 import { styleController, StyleController } from './styleController';
 
 class StyleMixins {
-  constructor(private controller: StyleController) {}
+  public static readonly instance = new StyleMixins(styleController);
+  private constructor(private controller: StyleController) {}
 
   /**
    * Create/returns a css class name for row spacing
@@ -58,4 +59,4 @@ class StyleMixins {
   }
 }
 
-export const styleMixins = new StyleMixins(styleController);
+export const styleMixins = StyleMixins.instance;

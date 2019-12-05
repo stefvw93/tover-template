@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { StyleController } from 'style/styleController';
+import { styleController } from 'style';
 import { Main } from './Main';
 
 const $root = document.getElementById('root');
 const $style = document.getElementById(
-  StyleController.tagId
+  styleController.tagId
 ) as HTMLStyleElement;
 
 function createApp() {
