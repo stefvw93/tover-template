@@ -7,5 +7,5 @@ export type CSSClassNameMap = {
   [className: string]: string;
 };
 
-export { mixins } from './mixins';
 export { styleController } from './styleController';
+export { styleMixins } from './styleMixins';

@@ -137,13 +137,20 @@ export class StyleController {
   }
 
   /**
-   * create a css rule, then generate and return the unique css class name
+   * Create a css class name from strings and css properties
    *
-   * @param objects nested css properties
+   * @param from strings and css properties
    * @returns css class name
    */
-  public create(...objects: NestedCSSProperties[]): string {
-    return this.instance.style(...objects);
+  public create(...from: (string | NestedCSSProperties)[]): string {
+    const nestedCssProperties = from.filter(
+      _ => typeof _ === 'object'
+    ) as NestedCSSProperties[];
+    const classNames = from.filter(_ => typeof _ === 'string') as string[];
+
+    classNames.push(this.instance.style(...nestedCssProperties));
+
+    return classNames.join(' ');
   }
 
   /**

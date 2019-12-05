@@ -1,9 +1,8 @@
-import { styleController } from 'style';
-
-const { spacing } = styleController.guide;
+import { styleController, styleMixins } from 'style';
 
 export const classNames = {
-  container: styleController.create({
-    padding: `${spacing.vertical}px ${spacing.horizontal}px`,
+  container: styleController.create(styleMixins.column(), {
+    $debugName: 'main',
+    overflow: 'auto',
   }),
 };

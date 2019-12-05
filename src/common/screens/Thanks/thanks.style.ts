@@ -1,5 +1,5 @@
-import { styleController } from 'style';
+import { styleController, styleMixins } from 'style';
 
 export const classNames = {
-  container: styleController.create({}),
+  container: styleController.create(styleMixins.row()),
 };
