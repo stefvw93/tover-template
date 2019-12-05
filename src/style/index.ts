@@ -3,9 +3,5 @@ export type Font = {
   weights: number[];
 };
 
-export type CSSClassNameMap = {
-  [className: string]: string;
-};
-
 export { styleController } from './styleController';
 export { styleMixins } from './styleMixins';
