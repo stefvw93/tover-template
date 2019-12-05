@@ -17,14 +17,14 @@ class StyleMixins {
   ): string {
     const f = this.row;
     const { spacing } = this.controller.guide;
-    const key = `${usePadding ? 'p' : 'm'}_${spacingFactor}`;
+    const key = `${usePadding ? 'p' : 'm'}-${spacingFactor}`;
 
     if (f[key]) return f[key];
 
     const space = spacing.vertical * spacingFactor;
 
     f[key] = styleController.create({
-      $debugName: `col_${spacingFactor}_${usePadding ? 'p' : 'm'}`,
+      $debugName: `row-${key}`,
       [usePadding ? 'paddingTop' : 'marginTop']: `${space}px`,
       [usePadding ? 'paddingBottom' : 'marginBottom']: `${space}px`,
     });
@@ -43,14 +43,14 @@ class StyleMixins {
   ): string {
     const f = this.column;
     const { spacing } = this.controller.guide;
-    const key = `${useMargin ? 'm' : 'p'}_${spacingFactor}`;
+    const key = `${useMargin ? 'm' : 'p'}-${spacingFactor}`;
 
     if (f[key]) return f[key];
 
     const space = spacing.horizontal * spacingFactor;
 
     f[key] = styleController.create({
-      $debugName: `col_${spacingFactor}_${useMargin ? 'm' : 'p'}`,
+      $debugName: `col-${key}`,
       [useMargin ? 'marginLeft' : 'paddingLeft']: `${space}px`,
       [useMargin ? 'marginRight' : 'paddingRight']: `${space}px`,
     });
@@ -73,6 +73,7 @@ class StyleMixins {
     const boxShadow = `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color}`;
 
     f[key] = styleController.create({
+      $debugName: `shadow-${key}_`,
       boxShadow,
       MozBoxShadow: boxShadow,
       '-webkit-box-shadow': boxShadow,
