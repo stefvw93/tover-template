@@ -6,7 +6,7 @@ class StyleMixins {
   private constructor(private controller: StyleController) {}
 
   /**
-   * Create/returns a css class name for row spacing
+   * Creates a css class name for row spacing
    *
    * @param spacingFactor multiplies the default spacing
    * @param usePadding use padding instead of margin
@@ -33,7 +33,7 @@ class StyleMixins {
   }
 
   /**
-   * Create/returns a css class name for column spacing
+   * Creates a css class name for column spacing
    *
    * @param spacingFactor multiplies the default spacing
    */
