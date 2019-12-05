@@ -1,6 +1,7 @@
 const { paths, entry, devServer, app } = require('../project-config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotENVWebpackPlugin = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -28,6 +29,7 @@ module.exports = {
       title: app.title,
       template: paths.htmlTemplate,
     }),
+    new DotENVWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.API_URL': JSON.stringify(process.env.API_URL),
     }),
