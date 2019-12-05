@@ -57,6 +57,29 @@ class StyleMixins {
 
     return f[key];
   }
+
+  @boundMethod public boxShadow(
+    xOffset = 0,
+    yOffset = 10,
+    blur = 40,
+    spread = -15,
+    color = 'rgba(0,0,0,0.6)'
+  ): string {
+    const f = this.boxShadow;
+    const key = [xOffset, yOffset, blur, spread, color].join('_');
+
+    if (f[key]) return f[key];
+
+    const boxShadow = `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color}`;
+
+    f[key] = styleController.create({
+      boxShadow,
+      MozBoxShadow: boxShadow,
+      '-webkit-box-shadow': boxShadow,
+    });
+
+    return f[key];
+  }
 }
 
 export const styleMixins = StyleMixins.instance;

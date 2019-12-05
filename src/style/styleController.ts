@@ -183,19 +183,6 @@ export class StyleController {
     return importStatement;
   }
 
-  /**
-   * Creates a css box-shadow value
-   */
-  public createBoxShadow(
-    xOffset = 0,
-    yOffset = 10,
-    blur = 40,
-    spread = -15,
-    color = 'rgba(0,0,0,0.6)'
-  ): string {
-    return `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color})`;
-  }
-
   // expose a style guide
   public readonly guide = {
     colors: this.colors,
@@ -205,10 +192,6 @@ export class StyleController {
       base: this.spacing,
       horizontal: this.spacing * this.horizontalSpacingFactor,
       vertical: this.spacing * this.verticalSpacingFactor,
-    },
-    animationDurations: {
-      feedback: 100,
-      effect: 200,
     },
   };
 }
