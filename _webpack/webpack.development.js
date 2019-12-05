@@ -5,6 +5,7 @@ const DotENVWebpackPlugin = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
+  devtool: 'eval-source-map',
   devServer: {
     port: devServer.port,
     host: devServer.ip,
