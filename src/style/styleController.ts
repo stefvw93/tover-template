@@ -76,7 +76,7 @@ export class StyleController {
   private horizontalSpacingFactor: number = 1;
   private verticalSpacingFactor: number = 1.2;
 
-  public constructor() {
+  constructor() {
     // always create @import's before any other css
     cssRaw(this.createGoogleFontImport());
 
