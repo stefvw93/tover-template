@@ -15,6 +15,13 @@
     "setup": "node _environment/setup",
     "lint": "node _environment/lint"
   },
+  "eslintConfig": {
+    "extends": "./eslintrc.json"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
