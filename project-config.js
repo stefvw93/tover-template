@@ -1,5 +1,5 @@
 const path = require('path');
-const package = require('./package.json');
+const package = require(path.resolve(process.cwd(), 'package.json'));
 const dirnames = {
   compiled: '.cache',
   distribution: '.dist',
