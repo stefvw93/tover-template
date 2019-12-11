@@ -10,19 +10,11 @@ const rl = readline.createInterface({
 });
 
 const questionMap = {
-  author: '',
   packageName: '',
-  repositoryURL: '',
-  repositoryType: '',
-  description: '',
 };
 
 const questions = Object.assign({}, questionMap, {
-  author: 'author',
   packageName: 'package name (kebab-case)',
-  repositoryURL: 'repository',
-  repositoryType: 'repository type (git, svn)',
-  description: 'description',
 });
 
 const answers = Object.assign({}, questionMap);
@@ -31,13 +23,7 @@ let currentQuestionIndex = 0;
 function setup() {
   writePkg({
     ...package,
-    author: answers.author,
-    description: answers.description,
     name: answers.packageName,
-    repository: {
-      type: answers.repositoryType,
-      url: answers.repositoryURL,
-    },
   })
     .then(() => {
       const root = __dirname + '/..';
