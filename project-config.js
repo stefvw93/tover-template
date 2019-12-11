@@ -1,5 +1,5 @@
 const path = require('path');
-const package = require(path.resolve(process.cwd(), 'package.json'));
+const package = require(path.resolve(__dirname, 'package.json'));
 const dirnames = {
   compiled: '.cache',
   distribution: '.dist',
@@ -22,11 +22,11 @@ module.exports = {
 
   paths: {
     dirnames,
-    root: process.cwd(),
-    compiled: path.join(process.cwd(), dirnames.compiled),
-    distribution: path.join(process.cwd(), dirnames.distribution),
-    source: path.join(process.cwd(), dirnames.source),
-    htmlTemplate: path.join(process.cwd(), dirnames.source, 'index.html'),
-    webpack: path.join(process.cwd(), dirnames.webpack),
+    root: __dirname,
+    compiled: path.join(__dirname, dirnames.compiled),
+    distribution: path.join(__dirname, dirnames.distribution),
+    source: path.join(__dirname, dirnames.source),
+    htmlTemplate: path.join(__dirname, dirnames.source, 'index.html'),
+    webpack: path.join(__dirname, dirnames.webpack),
   },
 };
