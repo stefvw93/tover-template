@@ -1,7 +1,7 @@
 const readline = require('readline');
 const writePkg = require('write-pkg');
 const package = require('../package.json');
-const colors = require('colors');
+const kleur = require('kleur');
 const { spawn } = require('child_process');
 
 const rl = readline.createInterface({
@@ -99,5 +99,5 @@ function handleInput(data) {
   }
 }
 
-console.log(colors.bold("\nLet's set up your brand new project!"));
+console.log(kleur.bold("\nLet's set up your brand new project!"));
 askQuestion();

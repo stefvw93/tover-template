@@ -1,5 +1,5 @@
 const { rewriteLine, ActivityIndicator, spawn } = require('./utils');
-const colors = require('colors');
+const kleur = require('kleur');
 const childProcessOptions = {
   stdio: 'inherit',
   shell: /^win/.test(process.platform),
@@ -15,14 +15,14 @@ const activityIndicator = new ActivityIndicator({
 const lint = async () => {
   try {
     // run eslint
-    activityIndicator.message = colors.italic('Running linter...');
+    activityIndicator.message = kleur.italic('Running linter...');
     await spawn(eslint, params, childProcessOptions);
     activityIndicator.stop();
-    // rewriteLine(colors.green('✓ Linter passed. Your code is beautiful!\n\n'));
+    // rewriteLine(kleur.green('✓ Linter passed. Your code is beautiful!\n\n'));
   } catch (e) {
     activityIndicator.stop();
     rewriteLine(
-      colors.red.bold('Something went wrong. Please check process output.\n\n')
+      kleur.red().bold('Something went wrong. Please check process output.\n\n')
     );
   }
 };

@@ -2,7 +2,7 @@ const { paths } = require('../project-config');
 const { writeLine, rewriteLine, ActivityIndicator, spawn } = require('./utils');
 const eslint = 'eslint';
 const params = ['--fix', 'src/**/*.{js,ts,tsx}'];
-const colors = require('colors');
+const kleur = require('kleur');
 const childProcessOptions = {
   stdio: 'inherit',
   shell: /^win/.test(process.platform),
@@ -17,20 +17,20 @@ const activityIndicator = new ActivityIndicator({
 const build = async () => {
   try {
     // run eslint
-    activityIndicator.message = colors.italic('Running linter...');
+    activityIndicator.message = kleur.italic('Running linter...');
     await spawn(eslint, params, childProcessOptions);
     activityIndicator.stop();
-    rewriteLine(colors.green('✓ Linter passed. Your code is beautiful!\n\n'));
+    rewriteLine(kleur.green('✓ Linter passed. Your code is beautiful!\n\n'));
 
     // compile typescript
-    activityIndicator.message = colors.italic('Compiling typescript...');
+    activityIndicator.message = kleur.italic('Compiling typescript...');
     activityIndicator.start();
     await spawn('tsc', ['--incremental'], childProcessOptions);
     activityIndicator.stop();
-    rewriteLine(colors.green('✓ Typescript compiled!\n\n'));
+    rewriteLine(kleur.green('✓ Typescript compiled!\n\n'));
 
     // bundle assets
-    activityIndicator.message = colors.italic('Bundling assets...');
+    activityIndicator.message = kleur.italic('Bundling assets...');
     activityIndicator.start();
     await spawn(
       'webpack',
@@ -42,12 +42,12 @@ const build = async () => {
       childProcessOptions
     );
     activityIndicator.stop();
-    rewriteLine(colors.green('✓ Done!\n\n'));
+    rewriteLine(kleur.green('✓ Done!\n\n'));
   } catch (e) {
     rewriteLine('');
     activityIndicator.stop();
     writeLine(
-      colors.red.bold('Something went wrong. Please check process output.\n\n')
+      kleur.red().bold('Something went wrong. Please check process output.\n\n')
     );
   }
 };
