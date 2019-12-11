@@ -4,10 +4,9 @@ const kleur = require('kleur');
 const childProcessOptions = {
   stdio: 'inherit',
   shell: /^win/.test(process.platform),
-  cwd: process.cwd(),
 };
 
-console.log(`${kleur.green().bold('Starting development mode...')}}`);
+console.log(`${kleur.green().bold('Starting development mode...')}`);
 
 spawnSync('tsc', ['--incremental']);
 spawn('tsc', ['-w', '--incremental'], childProcessOptions);
