@@ -22,10 +22,10 @@ module.exports = {
 
   paths: {
     dirnames,
-    root: __dirname,
-    compiled: path.join(__dirname, dirnames.compiled),
-    distribution: path.join(__dirname, dirnames.distribution),
-    source: path.join(__dirname, dirnames.source),
+    root: process.cwd(),
+    compiled: path.join(process.cwd(), dirnames.compiled),
+    distribution: path.join(process.cwd(), dirnames.distribution),
+    source: path.join(process.cwd(), dirnames.source),
     htmlTemplate: path.join(__dirname, dirnames.source, 'index.html'),
     webpack: path.join(__dirname, dirnames.webpack),
   },
