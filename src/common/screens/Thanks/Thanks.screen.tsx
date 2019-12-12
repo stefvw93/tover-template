@@ -23,6 +23,8 @@ export class Thanks extends React.Component<IThanksProps, IThanksState> {
             {'Stef van Wijchen'}
           </a>
         </p>
+        <img src={'assets/ts.png'} className={classNames.logo} />
+        <img src={'assets/react.png'} className={classNames.logo} />
       </div>
     );
   }

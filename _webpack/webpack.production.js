@@ -1,7 +1,9 @@
+const path = require('path');
 const { entry, paths, app } = require('../project-config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DotENVWebpackPlugin = require('dotenv-webpack');
+const DotEnvPlugin = require('dotenv-webpack');
 const EmitChangedOnlyPlugin = require('emit-changed-only-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -45,10 +47,18 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   plugins: [
-    new CompressionPlugin(),
-    new DotENVWebpackPlugin(),
+    new CopyPlugin([
+      {
+        from: paths.assets,
+        to: path.resolve(paths.distribution, 'assets'),
+      },
+    ]),
+    new CompressionPlugin({
+      exclude: /\.jpg|\.jpeg|\.png|\.svg/i,
+    }),
+    new DotEnvPlugin(),
     new EmitChangedOnlyPlugin({
-      exclude: /\.html/i,
+      exclude: /\.html|assets/i,
     }),
     new HtmlWebpackPlugin({
       title: app.title,

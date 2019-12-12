@@ -1,7 +1,9 @@
+const path = require('path');
 const { paths, entry, devServer, app } = require('../project-config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotENVWebpackPlugin = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -26,6 +28,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyPlugin([
+      {
+        from: paths.assets,
+        to: path.resolve(paths.compiled, 'assets'),
+      },
+    ]),
     new HtmlWebpackPlugin({
       title: app.title,
       template: paths.htmlTemplate,
