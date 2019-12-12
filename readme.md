@@ -1,4 +1,4 @@
-# Typescript React Boilerplate
+# Tover Template
 
 Opinionated but flexible project boilerplate, featuring:
 
