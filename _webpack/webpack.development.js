@@ -1,6 +1,7 @@
 const path = require('path');
 const { paths, entry, devServer, app } = require('../project-config');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotENVWebpackPlugin = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
