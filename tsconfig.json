@@ -1,15 +1,3 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
-    "experimentalDecorators": true,
-    "jsx": "react",
-    "module": "es6",
-    "moduleResolution": "node",
-    "outDir": ".cache",
-    "target": "es6",
-    "skipLibCheck": true
-  },
-  "exclude": ["node_modules"],
-  "include": ["./src"]
+  "extends": "@tover/tsconfig/tsconfig.json"
 }
