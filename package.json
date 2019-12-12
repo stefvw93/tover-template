@@ -36,7 +36,7 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@tover/eslint-config": "^1.0.0",
-    "@tover/tsconfig": "^1.0.1",
+    "@tover/tsconfig": "^1.0.3",
     "@types/body-scroll-lock": "^2.6.0",
     "@types/color": "^3.0.0",
     "@types/node": "^12.6.3",
