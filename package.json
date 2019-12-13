@@ -1,22 +1,14 @@
 {
-  "name": "typescript-react-boilerplate",
-  "version": "1.7.4",
+  "name": "tover-template",
+  "version": "1.8.0",
   "description": "Typescript React boilerplate",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stefvw93/typescript-react-boilerplate.git"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "node _environment/clean",
-    "build": "node _environment/build",
-    "start": "node _environment/dev",
-    "generate": "node _environment/generate",
-    "setup": "node _environment/setup",
-    "lint": "node _environment/lint"
-  },
-  "eslintConfig": {
-    "extends": "./eslintrc.json"
+    "build": "node _tools/environment/build",
+    "clean": "node _tools/environment/clean",
+    "generate": "node _tools/environment/generate",
+    "lint": "node _tools/environment/lint",
+    "start": "node _tools/environment/dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prettier": {
     "trailingComma": "es5",

@@ -1,19 +1,25 @@
 const { spawn } = require('child_process');
 
-module.exports = (...args) => {
-  const child = spawn(...args);
+/**
+ *
+ * @param {string} command
+ * @param {Array.<string>} args
+ * @param {Object} options
+ */
+module.exports = function(command, args, options) {
+  const child = spawn(command, args, options);
   const stdout = child.stdout;
   const stderr = child.stderr;
 
   if (child.stdout) {
     child.stdout.on('data', data => {
-      stdout.append(data);
+      if (stdout['write']) stdout['write'](data);
     });
   }
 
   if (child.stderr) {
     child.stderr.on('data', data => {
-      stderr.append(data);
+      if (stderr['append']) stderr['append'](data);
     });
   }
 
@@ -25,14 +31,14 @@ module.exports = (...args) => {
         resolve(stdout);
       } else {
         const err = new Error(`child exited with code ${code}`);
-        err.code = code;
-        err.stderr = stderr;
+        err['code'] = code;
+        err['stderr'] = stderr;
         reject(err);
       }
     });
   });
 
-  promise.child = child;
+  promise['child'] = child;
 
   return promise;
 };

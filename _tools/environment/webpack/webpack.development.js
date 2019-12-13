@@ -1,21 +1,21 @@
-const path = require('path');
-const { paths, entry, devServer, app } = require('../project-config');
-const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const DotEnvPlugin = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DotENVWebpackPlugin = require('dotenv-webpack');
+const path = require('path');
+const webpack = require('webpack');
+const { displayName, paths } = require('../../tover-config');
 
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
-    port: devServer.port,
-    host: devServer.ip,
-    open: devServer.open,
+    port: 3000,
+    host: 'localhost',
+    open: true,
     historyApiFallback: true,
   },
   context: paths.compiled,
-  entry: entry,
+  entry: 'index.js',
   module: {
     rules: [
       {
@@ -31,14 +31,13 @@ module.exports = {
     new CopyPlugin([
       {
         from: paths.assets,
-        to: path.resolve(paths.compiled, 'assets'),
+        to: path.resolve(paths.compiled, paths.dirnames.assets),
       },
     ]),
+    new DotEnvPlugin(),
     new HtmlWebpackPlugin({
-      title: app.title,
       template: paths.htmlTemplate,
     }),
-    new DotENVWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.API_URL': JSON.stringify(process.env.API_URL),
     }),

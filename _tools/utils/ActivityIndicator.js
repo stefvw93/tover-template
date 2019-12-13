@@ -1,5 +1,5 @@
-const writeLine = require('./writeLine');
 const rewriteLine = require('./rewriteLine');
+const writeLine = require('./writeLine');
 
 class ActivityIndicator {
   constructor(_ = ActivityIndicator.defaults) {
@@ -7,13 +7,11 @@ class ActivityIndicator {
     this.animate = false;
     this.message = settings.message;
     this.frames = settings.frames;
-    this.active = true;
     this.rewrites = 0;
     this.frame = 0;
     this.prefixLoader = settings.prefixLoader;
     this.interval = undefined;
     this.fps = settings.fps;
-    this.start();
   }
 
   start() {
@@ -24,6 +22,13 @@ class ActivityIndicator {
       }
       this.write();
     }, 1000 / this.fps);
+  }
+
+  stop() {
+    this.frame = 0;
+    this.animate = false;
+    clearInterval(this.interval);
+    process.stderr.write('\x1B[?25h');
   }
 
   updateFrame() {
@@ -42,20 +47,13 @@ class ActivityIndicator {
     }
     process.stderr.write('\x1B[?25l');
   }
-
-  stop() {
-    this.frame = 0;
-    this.animate = false;
-    clearInterval(this.interval);
-    process.stderr.write('\x1B[?25h');
-  }
 }
 
 ActivityIndicator.defaults = {
   message: '',
-  frames: ['', '.', '..', '...'],
-  fps: 30,
-  prefixLoader: false,
+  frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
+  prefixLoader: true,
+  fps: 15,
 };
 
 module.exports = ActivityIndicator;
