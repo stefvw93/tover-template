@@ -9,11 +9,8 @@ export class Thanks extends React.Component<IThanksProps, IThanksState> {
         <h1>Hello, world!</h1>
         <p>
           {'You are using '}
-          <a
-            target="_blank"
-            href="https://github.com/stefvw93/typescript-react-boilerplate"
-          >
-            {'typescript-react-boilerplate'}
+          <a target="_blank" href="https://github.com/stefvw93/tover-template">
+            {'tover-template'}
           </a>
           {'.'}
         </p>
