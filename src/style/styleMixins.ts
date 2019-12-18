@@ -1,4 +1,4 @@
-import { boundMethod } from 'utilities';
+import { boundMethod, cachedResult } from 'utilities';
 import { styleController, StyleController } from './styleController';
 
 class StyleMixins {
@@ -11,25 +11,18 @@ class StyleMixins {
    * @param spacingFactor multiplies the default spacing
    * @param usePadding use padding instead of margin
    */
-  @boundMethod public row(
-    spacingFactor: number = 1,
-    usePadding: boolean = false
-  ): string {
-    const f = this.row;
+  @boundMethod
+  @cachedResult
+  public row(spacingFactor: number = 1, usePadding: boolean = false): string {
     const { spacing } = this.controller.guide;
     const key = `${usePadding ? 'p' : 'm'}-${spacingFactor}`;
-
-    if (f[key]) return f[key];
-
     const space = spacing.vertical * spacingFactor;
 
-    f[key] = styleController.create({
+    return styleController.create({
       $debugName: `row-${key}`,
       [usePadding ? 'paddingTop' : 'marginTop']: `${space}px`,
       [usePadding ? 'paddingBottom' : 'marginBottom']: `${space}px`,
     });
-
-    return f[key];
   }
 
   /**
@@ -37,49 +30,40 @@ class StyleMixins {
    *
    * @param spacingFactor multiplies the default spacing
    */
-  @boundMethod public column(
-    spacingFactor: number = 1,
-    useMargin = false
-  ): string {
-    const f = this.column;
+  @boundMethod
+  @cachedResult
+  public column(spacingFactor: number = 1, useMargin = false): string {
     const { spacing } = this.controller.guide;
     const key = `${useMargin ? 'm' : 'p'}-${spacingFactor}`;
-
-    if (f[key]) return f[key];
-
     const space = spacing.horizontal * spacingFactor;
 
-    f[key] = styleController.create({
+    return styleController.create({
       $debugName: `col-${key}`,
       [useMargin ? 'marginLeft' : 'paddingLeft']: `${space}px`,
       [useMargin ? 'marginRight' : 'paddingRight']: `${space}px`,
     });
-
-    return f[key];
   }
 
-  @boundMethod public boxShadow(
+  /**
+   * Creates a css class name for a box shadow
+   */
+  @boundMethod
+  @cachedResult
+  public boxShadow(
     xOffset = 0,
     yOffset = 10,
     blur = 40,
     spread = -15,
     color = 'rgba(0,0,0,0.6)'
   ): string {
-    const f = this.boxShadow;
-    const key = [xOffset, yOffset, blur, spread, color].join('_');
-
-    if (f[key]) return f[key];
-
     const boxShadow = `${xOffset}px ${yOffset}px ${blur}px ${spread}px ${color}`;
 
-    f[key] = styleController.create({
-      $debugName: `shadow-${key}_`,
+    return styleController.create({
+      $debugName: `shadow`,
       boxShadow,
       MozBoxShadow: boxShadow,
       '-webkit-box-shadow': boxShadow,
     });
-
-    return f[key];
   }
 }
 
