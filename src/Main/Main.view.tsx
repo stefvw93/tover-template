@@ -1,5 +1,5 @@
-import { Thanks } from 'common/screens/Thanks';
 import React from 'react';
+import { Thanks } from 'components/screens/Thanks';
 import { IMainProps, IMainState } from '.';
 import { classNames } from './main.style';
 

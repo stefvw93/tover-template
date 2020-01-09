@@ -11,18 +11,27 @@ const {
   writeLine,
 } = require('../utils');
 
-const replaceName = 'COMPONENTNAME';
-const replaceType = 'COMPONENTTYPE';
-const replaceStyle = 'COMPONENTSTYLE';
-const allowedTypes = ['element', 'screen'];
+const activityIndicator = new ActivityIndicator();
 const bashArguments = process.argv.slice(2);
+
+// Settings
+// Edit these if you changed directories or filenames regarding templates or source output
+const COMPONENT_NAME_PLACEHOLDER = 'COMPONENTNAME';
+const COMPONENT_TYPE_PLACEHOLDER = 'COMPONENTTYPE';
+const COMPONENT_STYLE_PLACEHOLDER = 'COMPONENTSTYLE';
+const COMPONENT_TYPES = ['element', 'screen', 'template'];
+const TEMPLATES_DIR = path.resolve(__dirname, 'code-templates');
+const INDEX_TEMPLATE = path.resolve(TEMPLATES_DIR, 'index.txt');
+const COMPONENT_TEMPLATE = path.resolve(TEMPLATES_DIR, 'component.txt');
+const STYLE_TEMPLATE = path.resolve(TEMPLATES_DIR, 'styles.txt');
+const COMPONENT_OUTPUT_DIR = path.resolve(
+  process.cwd(),
+  paths.dirnames.source,
+  'components'
+);
+
 const componentName = bashArguments[0] || 'newComponent';
 const type = bashArguments[1] || 'element';
-const templatesPath = path.resolve(__dirname, 'code-templates');
-const indexPath = path.resolve(templatesPath, 'index.txt');
-const componentPath = path.resolve(templatesPath, 'component.txt');
-const stylesPath = path.resolve(templatesPath, 'styles.txt');
-const activityIndicator = new ActivityIndicator();
 
 /**
  * Get the output directory for a component type and name
@@ -30,15 +39,7 @@ const activityIndicator = new ActivityIndicator();
  * @param {string} componentName
  */
 function getOutDir(type, componentName) {
-  const outDir = path.resolve(
-    process.cwd(),
-    paths.dirnames.source,
-    'common',
-    type + 's',
-    componentName
-  );
-
-  return outDir;
+  return path.resolve(COMPONENT_OUTPUT_DIR, `${type}s`, componentName);
 }
 
 /**
@@ -55,10 +56,14 @@ async function generateModule(templateFile, name, type, subtype) {
     );
     activityIndicator.start();
 
-    if (allowedTypes.indexOf(type) < 0) {
+    if (COMPONENT_TYPES.indexOf(type) < 0) {
       activityIndicator.stop();
       reject(
-        errorMessage("Invalid type, only 'element' or 'screen' is allowed.")
+        errorMessage(
+          `Invalid module type "${type}". Allowed types are: ${COMPONENT_TYPES.join(
+            ', '
+          )}.`
+        )
       );
     }
 
@@ -87,10 +92,10 @@ async function generateModule(templateFile, name, type, subtype) {
           writeFileName,
           buffer
             .toString()
-            .replace(new RegExp(replaceName, 'g'), componentName)
-            .replace(new RegExp(replaceType, 'g'), type)
+            .replace(new RegExp(COMPONENT_NAME_PLACEHOLDER, 'g'), componentName)
+            .replace(new RegExp(COMPONENT_TYPE_PLACEHOLDER, 'g'), type)
             .replace(
-              new RegExp(replaceStyle, 'g'),
+              new RegExp(COMPONENT_STYLE_PLACEHOLDER, 'g'),
               name.charAt(0).toLowerCase() + name.slice(1)
             ),
 
@@ -120,13 +125,13 @@ if (fs.existsSync(getOutDir(type, componentName))) {
 async function generate() {
   try {
     // Component.element.ts
-    await generateModule(componentPath, componentName, type, type);
+    await generateModule(COMPONENT_TEMPLATE, componentName, type, type);
 
     // component.style.ts
-    await generateModule(stylesPath, componentName, type, 'style');
+    await generateModule(STYLE_TEMPLATE, componentName, type, 'style');
 
     // index.ts
-    await generateModule(indexPath, componentName, type, null);
+    await generateModule(INDEX_TEMPLATE, componentName, type, null);
 
     activityIndicator.stop();
   } catch (error) {
