@@ -2,6 +2,7 @@ import React from 'react';
 import { IThanksProps, IThanksState } from '.';
 import { classNames } from './thanks.style';
 import { Intro } from 'components/templates/Intro';
+import { List } from 'components/elements/List';
 
 export class Thanks extends React.Component<IThanksProps, IThanksState> {
   public render(): React.ReactNode {
