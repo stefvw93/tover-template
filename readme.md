@@ -72,7 +72,7 @@ Creating new components can be a tedious task. Therefor a code generation script
 % npm run generate <name> <type>
 ```
 
-Where `name` is your component name, and `type` is either `"element"` (default) or `"screen"`. (See [Existing source code](#existing-source-code))
+Where `name` is your component name, and `type` can be `"element"` (default), `"screen"` or `"template"`. (See [Existing source code](#existing-source-code))
 
 This script will create a `component`, `styles` and `index` file with related types and exports.
 
@@ -91,7 +91,12 @@ This script will create a `component`, `styles` and `index` file with related ty
 # creates a screen module called "Login"
 ```
 
-Code templates can be edited in `_environment/code-templates`.
+```bash
+% npm run generate NewsFeedItem template
+# creates a template module called "NewsFeedItem"
+```
+
+Code templates can be edited in `_tools/environment/code-templates`.
 
 ## Existing source code
 
@@ -106,8 +111,8 @@ This section roughly explains the out-of-the-box boilerplate code. All existing 
 > `src/style`
 > Style controller and other style related code
 
-> `src/common/elements`, `src/common/screens`
-> Common/reusable components like (ui) elements and screens.
+> `src/components/screens`, `src/components/elements`, `src/components/templates`
+> UI components like screens, elements and templates (a collection of elements).
 
 > `src/utilities`
 > Utility code or code that does not fall into other categories.
@@ -152,7 +157,7 @@ export { MyComponent } from './MyComponent.element';
 ```typescript
 // some other module
 
-import { MyComponent } from "common/elements/MyComponent"`
+import { MyComponent } from "components/elements/MyComponent"`
 ```
 
 ## Settings
