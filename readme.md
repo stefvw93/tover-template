@@ -82,8 +82,8 @@ This script will create a `component`, `styles` and `index` file with related ty
 ```
 
 ```bash
-% npm run generate Image element
-# creates an element module called "Image"
+% npm run generate Image element --sfc
+# creates an element module called "Image" with a "Stateless Functional" React component
 ```
 
 ```bash
