@@ -1,0 +1,7 @@
+import React from 'react';
+import { ICOMPONENTNAMEProps } from '.';
+import { classNames } from './COMPONENTSTYLE.style';
+
+export const COMPONENTNAME: React.SFC<ICOMPONENTNAMEProps> = props => {
+  return <div className={classNames.container}>{'COMPONENTNAME'}</div>;
+};

@@ -13,6 +13,7 @@ const {
 
 const activityIndicator = new ActivityIndicator();
 const bashArguments = process.argv.slice(2);
+const generateFunctionComponent = bashArguments.indexOf('--sfc');
 
 // Settings
 // Edit these if you changed directories or filenames regarding templates or source output
@@ -22,7 +23,9 @@ const COMPONENT_STYLE_PLACEHOLDER = 'COMPONENTSTYLE';
 const COMPONENT_TYPES = ['element', 'screen', 'template'];
 const TEMPLATES_DIR = path.resolve(__dirname, 'code-templates');
 const INDEX_TEMPLATE = path.resolve(TEMPLATES_DIR, 'index.txt');
-const COMPONENT_TEMPLATE = path.resolve(TEMPLATES_DIR, 'component.txt');
+const COMPONENT_TEMPLATE = generateFunctionComponent
+  ? path.resolve(TEMPLATES_DIR, 'sf-component.txt')
+  : path.resolve(TEMPLATES_DIR, 'component.txt');
 const STYLE_TEMPLATE = path.resolve(TEMPLATES_DIR, 'styles.txt');
 const COMPONENT_OUTPUT_DIR = path.resolve(
   process.cwd(),
