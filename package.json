@@ -1,6 +1,6 @@
 {
   "name": "tover-template",
-  "version": "1.9.5",
+  "version": "1.10.0",
   "description": "Typescript React boilerplate",
   "scripts": {
     "build": "node _tools/environment/build",
