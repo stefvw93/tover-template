@@ -7,8 +7,9 @@
     "module": "es6",
     "moduleResolution": "node",
     "outDir": ".cache",
-    "target": "es6",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "target": "es6"
   },
   "exclude": ["node_modules"],
   "include": ["src"]
