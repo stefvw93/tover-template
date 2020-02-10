@@ -12,7 +12,7 @@ export function List<ItemType = {}>(
 
   for (let i = 0, l = items.length; i < l; i++) {
     const item = items[i];
-    const node = template(item, i);
+    const node = template(item, i, items);
     nodes.push(node);
   }
 
