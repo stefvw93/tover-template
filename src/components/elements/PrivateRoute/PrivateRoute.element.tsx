@@ -19,8 +19,8 @@ class PrivateRouteClass extends React.Component<
     return (
       <Route
         {...this.props}
-        component={authenticated ? this.props.component : null}
-        render={!authenticated ? this.createRedirect : null}
+        component={authenticated ? this.props.component : undefined}
+        render={!authenticated ? this.createRedirect : undefined}
       />
     );
   }
